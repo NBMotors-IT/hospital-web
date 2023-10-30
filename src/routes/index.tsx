@@ -1,4 +1,5 @@
 import { Box, Button, FormControl, Input, Sheet, Typography } from '@mui/joy';
+import { Link } from 'react-router-dom';
 
 function IndexPage() {
   return (
@@ -19,17 +20,21 @@ function IndexPage() {
         borderRadius: 'sm',
         boxShadow: 'md'
       }}>
-        <Typography level='h2'>Sacred Heart Hospital</Typography>
+        <div>
+          <Typography textAlign='center' level='h2'>Hospital</Typography>
+          <Typography textAlign='center' level='title-md'>Emergency Room Module</Typography>
+        </div>
 
         <FormControl>
-          <Input variant='soft' name="username" type="text" placeholder="Username" />
+          <Input variant='soft' name='username' type='text' placeholder='Username' />
         </FormControl>
 
         <FormControl>
-          <Input variant='soft' name="password" type="password" placeholder="Password" />
+          <Input variant='soft' name='password' type='password' placeholder='Password' />
         </FormControl>
 
-        <Button>Login</Button>
+        {/* No accounts for now */}
+        <Button component={Link} to='/dashboard'>Login</Button>
       </Sheet>
     </Box>
   );
