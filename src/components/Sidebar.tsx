@@ -1,4 +1,4 @@
-import { Egg, Home, KeyboardArrowDown, LocalHospital, Menu } from '@mui/icons-material';
+import { Close, Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from './Toggler';
 import CustomNavLink from './CustomNavLink';
@@ -39,7 +39,7 @@ function Sidebar() {
           color='neutral'
           size='sm'
         >
-          <Menu />
+          <Close />
         </IconButton>
       </Box>
 
