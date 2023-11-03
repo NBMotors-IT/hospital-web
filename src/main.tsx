@@ -14,6 +14,7 @@ import DashboardPage from './routes/dashboard.tsx';
 import MainLayout from './mainLayout.tsx';
 import { Box, Typography } from '@mui/joy';
 import { Sick } from '@mui/icons-material';
+import AdmissionPage from './routes/admission.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -25,6 +26,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           {/* Routes with header & side-menu layout */}
           <Route element={<MainLayout />}>
             <Route path='dashboard' element={<DashboardPage />} />
+
+            <Route path='admission/:admissionId' element={<AdmissionPage />} />
           </Route>
 
           <Route
