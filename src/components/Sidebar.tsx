@@ -1,7 +1,8 @@
-import { Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
-import { Box, Divider, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
+import { Egg, Home, KeyboardArrowDown, LocalHospital, Menu } from '@mui/icons-material';
+import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from './Toggler';
 import CustomNavLink from './CustomNavLink';
+import { toggleSidebar } from '../utils';
 
 function Sidebar() {
   return (
@@ -10,13 +11,14 @@ function Sidebar() {
         xs: 'fixed',
         md: 'sticky'
       },
+      transform: {
+        xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
+        md: 'none'
+      },
+      transition: 'transform 0.2s, width 0.2s',
       top: 0,
       zIndex: 9999,
-      // display: 'flex',
-      display: {
-        xs: 'none', // TODO: Button for toggling sidebar on mobile
-        md: 'flex'
-      },
+      display: 'flex',
       flexDirection: 'column',
       gap: 2,
       p: 2,
@@ -25,9 +27,20 @@ function Sidebar() {
       borderRight: '1px solid',
       borderColor: 'divider'
     }}>
-      <Box display='flex' gap={1} alignItems='center'>
-        <LocalHospital />
-        <Typography level='title-lg'>Hospital</Typography>
+      <Box display='flex' justifyContent='space-between'>
+        <Box display='flex' gap={1} alignItems='center'>
+          <LocalHospital />
+          <Typography level='title-lg'>Hospital</Typography>
+        </Box>
+        <IconButton
+          sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+          onClick={() => toggleSidebar()}
+          variant='outlined'
+          color='neutral'
+          size='sm'
+        >
+          <Menu />
+        </IconButton>
       </Box>
 
       <Divider />
@@ -35,7 +48,7 @@ function Sidebar() {
       {/* Sidebar menu links */}
       <List variant='plain' sx={{ gap: 1 }}>
         <ListItem>
-          <ListItemButton component={CustomNavLink} to="/dashboard">
+          <ListItemButton component={CustomNavLink} to='/dashboard'>
             <ListItemDecorator>
               <Home />
             </ListItemDecorator>
