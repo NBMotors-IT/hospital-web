@@ -72,7 +72,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
                     <tr key={index}>
                       <th scope='row'>{fileRow.fileName}</th>
                       <td>{fileRow.fileSize} MB</td>
-                      <td><Button variant='soft'>Download</Button></td>
+                      <td><Button variant='plain'>Download</Button></td>
                     </tr>
                   ))}
                 </tbody>
@@ -90,6 +90,7 @@ function DocumentsTable() {
     <Sheet sx={{ height: '200px', overflow: 'auto' }}>
       <Table
         aria-label='collapsible table'
+        size='sm'
         sx={{
           '& > thead > tr > th:nth-child(n + 3), & > tbody > tr > td:nth-child(n + 3)':
             { textAlign: 'right' },
