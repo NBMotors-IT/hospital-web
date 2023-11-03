@@ -1,6 +1,7 @@
 import { Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
 import { Box, Divider, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
-import Toggler from './toggler';
+import Toggler from './Toggler';
+import CustomNavLink from './CustomNavLink';
 
 function Sidebar() {
   return (
@@ -34,7 +35,7 @@ function Sidebar() {
       {/* Sidebar menu links */}
       <List variant='plain' sx={{ gap: 1 }}>
         <ListItem>
-          <ListItemButton>
+          <ListItemButton component={CustomNavLink} to="/dashboard">
             <ListItemDecorator>
               <Home />
             </ListItemDecorator>
