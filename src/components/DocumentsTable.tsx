@@ -21,7 +21,8 @@ const data: DepartmentData[] = [
   { 
     departmentName: 'Radiology', files: [ 
       { fileName: 'somescan.pdf', fileSize: 4.12 },
-      { fileName: 'anotherscan.pdf', fileSize: 6.27 } ]
+      { fileName: 'anotherscan.pdf', fileSize: 6.27 },
+      { fileName: 'lastscan.pdf', fileSize: 9.27 } ]
   }
 ];
 
@@ -56,7 +57,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
               <Table
                 size='sm'
                 sx={{
-                  '& > thead > tr > th:nth-child(n + 3), & > tbody > tr > td:nth-child(n + 3)':
+                  '& > thead > tr > th:nth-of-type(n + 3), & > tbody > tr > td:nth-of-type(n + 2)':
                     { textAlign: 'right' }
                 }}
               >
@@ -87,14 +88,14 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
 
 function DocumentsTable() {
   return (
-    <Sheet sx={{ height: '200px', overflow: 'auto' }}>
+    <Sheet sx={{ height: '400px', overflow: 'auto' }}>
       <Table
         aria-label='collapsible table'
         size='sm'
         sx={{
-          '& > thead > tr > th:nth-child(n + 3), & > tbody > tr > td:nth-child(n + 3)':
+          '& > thead > tr > th:nth-of-type(n + 3), & > tbody > tr > td:nth-of-type(n + 2)':
             { textAlign: 'right' },
-          '& > tbody > tr:nth-child(odd) > td, & > tbody > tr:nth-child(odd) > th[scope="row"]':
+          '& > tbody > tr:nth-of-type(odd) > td, & > tbody > tr:nth-of-type(odd) > th[scope="row"]':
             { borderBottom: 0 }
         }}
       >

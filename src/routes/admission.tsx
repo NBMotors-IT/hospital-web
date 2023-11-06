@@ -23,65 +23,74 @@ function AdmissionPage() {
     <>
       <Typography color='neutral' level='h1' sx={{ mb: 3 }}>Admission #{params.admissionId}</Typography>
       <Grid container spacing={2}>
+        {/* Main grid */}
         <Grid xs={12} md={10}>
-          <Box display='flex' flexDirection='column' gap={2}>
-            <Card variant='plain' sx={{ minHeight: { xs: 0, md: 300 }, boxShadow: 'sm' }}>
-              Some Stuff
-            </Card>
+          <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
+            <Grid xs={12} md={6} lg={6} sm={6} xl={6}>
+              <Card variant='plain' sx={{ width: '100%', minHeight: { xs: 0, md: 300 }, boxShadow: 'sm' }}>
+                Patient Info Here...
+              </Card>
+            </Grid>
 
-            <Grid container spacing={2}>
-              <Grid xs={12} md={6}>
-                <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm' }}>
-                  <Typography level='title-md'>Previous admissions</Typography>
-                  <Sheet sx={{ height: 180, overflow: 'auto' }}>
-                    <Table stickyHeader size='sm' sx={{ '& tr > *:last-child': { textAlign: 'right' } }}>
-                      <thead>
-                        <tr>
-                          <th>Id</th>
-                          <th>Date</th>
-                          <th>Doctor</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {previousAdmissions.map((admission) => (
+            <Grid xs={12} md={6}>
+              <Card variant='plain' sx={{ minHeight: { xs: 0, md: 300 }, boxShadow: 'sm' }}>
+                <Typography level='title-md'>History</Typography>
+                <Textarea minRows={7} maxRows={7} defaultValue='Some notes about the patient here...' />
+                <Button>Save</Button>
+              </Card>
+            </Grid>
+
+            {/* Next row */}
+
+            <Grid xs={12} md={6}>
+              <Grid container columns={12} spacing={2}>
+                <Grid xs={12} md={12}>
+                  <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
+                    <Typography level='title-md'>Previous admissions</Typography>
+                    <Sheet sx={{ height: 180, overflow: 'auto' }}>
+                      <Table stickyHeader size='sm' sx={{ '& tr > *:last-child': { textAlign: 'right' } }}>
+                        <thead>
                           <tr>
-                            <td>{admission.id}</td>
-                            <td>{admission.date}</td>
-                            <td>{admission.doctor}</td>
-                            <td><Button variant='plain'>View</Button></td>
+                            <th>Id</th>
+                            <th>Date</th>
+                            <th>Doctor</th>
+                            <th></th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </Sheet>
-                </Card>
-              </Grid>
-              <Grid xs={12} md={6}>
-                <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm' }}>
-                  <Typography level='title-md'>Notes</Typography>
-                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' />
-                  <Button>Save</Button>
-                </Card>
+                        </thead>
+                        <tbody>
+                          {previousAdmissions.map((admission) => (
+                            <tr key={admission.id}>
+                              <td>{admission.id}</td>
+                              <td>{admission.date}</td>
+                              <td>{admission.doctor}</td>
+                              <td><Button variant='plain'>View</Button></td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table>
+                    </Sheet>
+                  </Card>
+                </Grid>
+
+                <Grid xs={12} md={12}>
+                  <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
+                    <Typography level='title-md'>Prescriptions</Typography>
+                  </Card>
+                </Grid>
               </Grid>
             </Grid>
 
-            <Grid container spacing={2}>
-              <Grid xs={12} md={6}>
-                <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
-                  <Typography level='title-md'>Prescriptions</Typography>
-                </Card>
-              </Grid>
-              <Grid xs={12} md={6}>
-                <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
-                  <Typography level='title-md'>Documents</Typography>
+            <Grid xs={12} md={6}>
+              <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+                <Typography level='title-md'>Documents</Typography>
 
-                  <DocumentsTable />
-                </Card>
-              </Grid>
+                <DocumentsTable />
+              </Card>
             </Grid>
-          </Box>
+          </Grid>
         </Grid>
+
+        {/* Sidebar grid */}
         <Grid xs={12} md={2}>
           <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm', justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
