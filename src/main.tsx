@@ -11,7 +11,7 @@ import App from './App.tsx';
 
 import IndexPage from './routes/index.tsx';
 import DashboardPage from './routes/dashboard.tsx';
-import MainLayout from './mainLayout.tsx';
+import LoggedInLayout from './layouts/LoggedInLayout.tsx';
 import { Box, Typography } from '@mui/joy';
 import { Sick } from '@mui/icons-material';
 import AdmissionPage from './routes/admission.tsx';
@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route index element={<IndexPage />} />
 
           {/* Routes with header & side-menu layout */}
-          <Route element={<MainLayout />}>
+          <Route element={<LoggedInLayout />}>
             <Route path='dashboard' element={<DashboardPage />} />
 
             <Route path='admission/:admissionId' element={<AdmissionPage />} />
