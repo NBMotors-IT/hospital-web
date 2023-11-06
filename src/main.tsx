@@ -12,9 +12,8 @@ import App from './App.tsx';
 import IndexPage from './routes/index.tsx';
 import DashboardPage from './routes/dashboard.tsx';
 import LoggedInLayout from './layouts/LoggedInLayout.tsx';
-import { Box, Typography } from '@mui/joy';
-import { Sick } from '@mui/icons-material';
 import AdmissionPage from './routes/admission.tsx';
+import NotFoundPage from './routes/special/notfound.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -30,15 +29,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='admission/:admissionId' element={<AdmissionPage />} />
           </Route>
 
-          <Route
-            path='*'
-            element={
-              <Box display='flex' flexDirection='column' width='100%' alignItems='center' justifyContent='center'>
-                <Sick color='warning' sx={{ fontSize: '80px' }} />
-                <Typography level='h2' textAlign='center'>Page Not Found</Typography>
-              </Box>
-            }
-          />
+          {/* 404 Not Found */}
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
