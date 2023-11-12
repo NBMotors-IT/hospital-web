@@ -9,11 +9,11 @@ function Sidebar() {
     <Sheet sx={{
       position: {
         xs: 'fixed',
-        md: 'sticky'
+        xl: 'sticky'
       },
       transform: {
         xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
-        md: 'none'
+        xl: 'none'
       },
       transition: 'transform 0.2s, width 0.2s',
       top: 0,
@@ -33,7 +33,7 @@ function Sidebar() {
           <Typography level='title-lg'>Hospital</Typography>
         </Box>
         <IconButton
-          sx={{ display: { xs: 'inline-flex', md: 'none' } }}
+          sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
           onClick={() => toggleSidebar()}
           variant='outlined'
           color='neutral'

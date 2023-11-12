@@ -9,7 +9,7 @@ function LoggedInLayout() {
     <Box display='flex' flexDirection='column' width='100%'>
       {/* Header, only for toggling sidebar on mobile? */}
       <Sheet sx={{
-          display: { xs: 'flex', md: 'none' },
+          display: { xs: 'flex', xl: 'none' },
           p: 2,
           borderBottom: '1px solid',
           borderColor: 'background.level1',
