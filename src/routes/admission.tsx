@@ -30,7 +30,7 @@ function AdmissionPage() {
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6} lg={6} sm={6} xl={6}>
               <Card variant='plain' sx={{ width: '100%', minHeight: { xs: 0, md: 300 }, flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
-                <Box display='flex' flexDirection='column' alignItems='center' my={3} mx={6}>
+                <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={6}>
                   <Badge
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     badgeInset='15%'
