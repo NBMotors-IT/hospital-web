@@ -3,6 +3,7 @@ import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemConte
 import Toggler from './Toggler';
 import CustomNavLink from './CustomNavLink';
 import { toggleSidebar } from '../utils';
+import DarkModeToggle from './common/DarkModeToggle';
 
 function Sidebar() {
   return (
@@ -32,15 +33,19 @@ function Sidebar() {
           <LocalHospital />
           <Typography level='title-lg'>Hospital</Typography>
         </Box>
-        <IconButton
-          sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
-          onClick={() => toggleSidebar()}
-          variant='outlined'
-          color='neutral'
-          size='sm'
-        >
-          <Close />
-        </IconButton>
+        <Box display='flex' gap={1}>
+          <DarkModeToggle />
+          
+          <IconButton
+            sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
+            onClick={() => toggleSidebar()}
+            variant='outlined'
+            color='neutral'
+            size='sm'
+          >
+            <Close />
+          </IconButton>
+        </Box>
       </Box>
 
       <Divider />
