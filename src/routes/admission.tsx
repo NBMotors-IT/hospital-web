@@ -29,8 +29,8 @@ function AdmissionPage() {
         <Grid xs={12} md={10}>
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6} lg={6} sm={6} xl={6}>
-              <Card variant='plain' sx={{ width: '100%', minHeight: { xs: 0, md: 300 }, flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
-                <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={6}>
+              <Card variant='plain' sx={{ width: '100%', height: { xs: 0, md: 330 }, flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
+                <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={2}>
                   <Badge
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     badgeInset='15%'
@@ -54,7 +54,7 @@ function AdmissionPage() {
                 <Divider orientation='vertical' sx={{ display: { xs: 'none', md: 'block' }}} />
                 <Divider orientation='horizontal' sx={{ display: { xs: 'block', md: 'none' }}} />
 
-                <Box display='flex' flexDirection='column' flexGrow={1} gap={2}>
+                <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1} gap={2}>
                   <FormControl>
                     <FormLabel>Sex</FormLabel>
                     <Input readOnly variant='soft' value='Male' />
