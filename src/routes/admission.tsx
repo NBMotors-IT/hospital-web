@@ -80,8 +80,14 @@ function AdmissionPage() {
 
             <Grid xs={12} md={6}>
               <Card variant='plain' sx={{ minHeight: { xs: 0, md: 330 }, boxShadow: 'sm' }}>
-                <Typography level='title-md'>History</Typography>
-                <Textarea minRows={8} maxRows={8} defaultValue='Some notes about the patient here...' />
+                <FormControl>
+                  <FormLabel>Diagnosis</FormLabel>
+                  <Input defaultValue='Some diagnosis here...' />
+                </FormControl>
+                <FormControl>
+                  <FormLabel>History</FormLabel>
+                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' />
+                </FormControl>
                 <Button size='lg'>Save</Button>
               </Card>
             </Grid>
