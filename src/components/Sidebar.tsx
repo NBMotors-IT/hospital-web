@@ -2,13 +2,13 @@ import { Close, Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-m
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from './Toggler';
 import CustomNavLink from './common/CustomNavLink';
-import { toggleSidebar } from '../utils';
+import { closeSidebar } from '../utils';
 import DarkModeToggle from './common/DarkModeToggle';
 
 function Sidebar() {
   return (
     <>
-      <Sheet onClick={() => toggleSidebar()} sx={{
+      <Sheet onClick={() => closeSidebar()} sx={{
         display: {
           xs: 'block',
           xl: 'none'
@@ -57,7 +57,7 @@ function Sidebar() {
 
             <IconButton
               sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
-              onClick={() => toggleSidebar()}
+              onClick={() => closeSidebar()}
               variant='outlined'
               color='neutral'
               size='sm'
