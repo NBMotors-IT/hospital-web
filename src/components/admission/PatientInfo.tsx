@@ -1,7 +1,7 @@
 import { Bloodtype, Height, Hotel, Scale } from '@mui/icons-material';
 import { Avatar, Badge, Box, Chip, Divider, FormControl, FormLabel, Input, Typography } from '@mui/joy';
 
-function PatientInfoCard() {
+function PatientInfo() {
   return (
     <>
       <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={2}>
@@ -53,4 +53,4 @@ function PatientInfoCard() {
   );
 }
 
-export default PatientInfoCard;
+export default PatientInfo;

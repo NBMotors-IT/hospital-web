@@ -1,7 +1,7 @@
 import { Box, Button, Card, Divider, FormControl, FormLabel, Grid, Input, Sheet, Table, Textarea, Typography } from '@mui/joy';
 import { useParams } from 'react-router-dom';
 import DocumentsTable from '../components/admission/DocumentsTable';
-import PatientInfoCard from '../components/admission/PatientInfoCard';
+import PatientInfo from '../components/admission/PatientInfo';
 
 interface Admission {
   id: string,
@@ -29,7 +29,7 @@ function AdmissionPage() {
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6}>
               <Card variant='plain' sx={{ width: '100%', height: { md: 330 }, flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
-                <PatientInfoCard /> {/* TODO: Pass patient info props */}
+                <PatientInfo /> {/* TODO: Pass patient info props */}
               </Card>
             </Grid>
 
