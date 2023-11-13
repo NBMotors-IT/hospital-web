@@ -25,8 +25,8 @@ function PatientInfo() {
         </Box>
       </Box>
 
-      <Divider orientation='vertical' sx={{ display: { xs: 'none', md: 'block' } }} />
-      <Divider orientation='horizontal' sx={{ display: { xs: 'block', md: 'none' } }} />
+      <Divider orientation='vertical' inset='context' sx={{ display: { xs: 'none', md: 'block' } }} />
+      <Divider orientation='horizontal' inset='context' sx={{ display: { xs: 'block', md: 'none' } }} />
 
       <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1} gap={2}>
         <FormControl>
