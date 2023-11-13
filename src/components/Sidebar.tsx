@@ -1,7 +1,7 @@
 import { Close, Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from './Toggler';
-import CustomNavLink from './CustomNavLink';
+import CustomNavLink from './common/CustomNavLink';
 import { toggleSidebar } from '../utils';
 import DarkModeToggle from './common/DarkModeToggle';
 
@@ -35,7 +35,7 @@ function Sidebar() {
         </Box>
         <Box display='flex' gap={1}>
           <DarkModeToggle />
-          
+
           <IconButton
             sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
             onClick={() => toggleSidebar()}
