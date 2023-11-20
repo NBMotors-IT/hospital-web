@@ -1,9 +1,9 @@
 import { Close, Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
-import Toggler from './Toggler';
-import CustomNavLink from './common/CustomNavLink';
-import { closeSidebar } from '../utils';
-import DarkModeToggle from './common/DarkModeToggle';
+import Toggler from '../Toggler';
+import SidebarNavLink from './SidebarNavLink';
+import { closeSidebar } from '../../utils';
+import DarkModeToggle from '../common/DarkModeToggle';
 
 function Sidebar() {
   return (
@@ -72,7 +72,7 @@ function Sidebar() {
         {/* Sidebar menu links */}
         <List variant='plain' sx={{ gap: 1 }}>
           <ListItem>
-            <ListItemButton component={CustomNavLink} to='/dashboard'>
+            <ListItemButton component={SidebarNavLink} to='/dashboard'>
               <ListItemDecorator>
                 <Home />
               </ListItemDecorator>
