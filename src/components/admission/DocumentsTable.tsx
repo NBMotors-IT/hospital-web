@@ -13,13 +13,13 @@ interface DepartmentData {
 }
 
 const data: DepartmentData[] = [
-  { 
-    departmentName: 'Lab', files: [ 
+  {
+    departmentName: 'Lab', files: [
       { fileName: 'somefile.pdf', fileSize: 1.23 },
-      { fileName: 'anotherfile.pdf', fileSize: 4.2 } ] 
+      { fileName: 'anotherfile.pdf', fileSize: 4.2 } ]
   },
-  { 
-    departmentName: 'Radiology', files: [ 
+  {
+    departmentName: 'Radiology', files: [
       { fileName: 'somescan.pdf', fileSize: 4.12 },
       { fileName: 'anotherscan.pdf', fileSize: 6.27 },
       { fileName: 'lastscan.pdf', fileSize: 9.27 } ]
@@ -88,7 +88,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
 
 function DocumentsTable() {
   return (
-    <Sheet sx={{ height: '400px', overflow: 'auto' }}>
+    <Sheet sx={{ height: '490px', overflow: 'auto' }}>
       <Table
         aria-label='collapsible table'
         size='sm'

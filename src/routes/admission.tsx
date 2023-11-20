@@ -2,6 +2,7 @@ import { Box, Button, Card, Divider, FormControl, FormLabel, Grid, Input, Sheet,
 import { useParams } from 'react-router-dom';
 import DocumentsTable from '../components/admission/DocumentsTable';
 import PatientInfo from '../components/admission/PatientInfo';
+import PrescriptionsTable from '../components/admission/PrescriptionsTable';
 
 interface Admission {
   id: string,
@@ -82,6 +83,8 @@ function AdmissionPage() {
                 <Grid xs={12} md={12}>
                   <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
                     <Typography level='title-md'>Prescriptions</Typography>
+
+                    <PrescriptionsTable />
                   </Card>
                 </Grid>
               </Grid>
