@@ -2,16 +2,16 @@ import { Button, Sheet, Table } from '@mui/joy';
 
 interface Admission {
   id: string,
-  date: string,
+  date: Date,
   doctor: string
 }
 
 const previousAdmissions: Admission[] = [
-  { id: '6457', date: '2023-02-12', doctor: 'John Smith' },
-  { id: '3256', date: '2023-01-01', doctor: 'John Smith' },
-  { id: '1111', date: '2022-12-31', doctor: 'John Smith' },
-  { id: '0101', date: '2021-04-11', doctor: 'John Smith' },
-  { id: '0000', date: '2020-09-22', doctor: 'John Smith' }
+  { id: '6457', date: new Date('2023-02-12T12:00'), doctor: 'John Smith' },
+  { id: '3256', date: new Date('2023-01-01T12:00'), doctor: 'John Smith' },
+  { id: '1111', date: new Date('2022-12-31T12:00'), doctor: 'John Smith' },
+  { id: '0101', date: new Date('2021-04-11T12:00'), doctor: 'John Smith' },
+  { id: '0000', date: new Date('2020-09-22T12:00'), doctor: 'John Smith' }
 ];
 
 function PrevAdmissionsTable() {
@@ -31,7 +31,7 @@ function PrevAdmissionsTable() {
             {previousAdmissions.map((admission) => (
               <tr key={admission.id}>
                 <td>{admission.id}</td>
-                <td>{admission.date}</td>
+                <td>{admission.date.toLocaleDateString()}</td>
                 <td>{admission.doctor}</td>
                 <td><Button variant='plain'>View</Button></td>
               </tr>
