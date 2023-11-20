@@ -88,7 +88,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
 
 function DocumentsTable() {
   return (
-    <Sheet sx={{ height: '490px', overflow: 'auto' }}>
+    <Sheet sx={{ height: { md: '490px' }, overflow: 'auto' }}>
       <Table
         aria-label='collapsible table'
         size='sm'
