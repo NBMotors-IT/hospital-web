@@ -1,5 +1,6 @@
 import { Search } from '@mui/icons-material';
 import { Button, Input, Sheet, Table } from '@mui/joy';
+import { useState } from 'react';
 
 interface Prescription {
   id: string,
@@ -19,9 +20,20 @@ const previousPrescriptions: Prescription[] = [
 ];
 
 function PrescriptionsTable() {
+  const [filter, setFilter] = useState('');
+
+  const filterFn = (p: Prescription) => {
+    // TODO: Rewrite when/if we change date type?
+    if (filter.length == 0) return true;
+
+    return (p.date.includes(filter)
+      || p.id.includes(filter)
+      || p.medicine.toLowerCase().includes(filter.toLowerCase()));
+  }
+
   return (
     <>
-      <Input startDecorator={<Search />} />
+      <Input startDecorator={<Search />} value={filter} onChange={e => setFilter(e.target.value)} />
 
       <Sheet sx={{ height: 180, overflow: 'auto' }}>
         <Table stickyHeader size='sm' sx={{ '& tr > *:last-child': { textAlign: 'right' } }}>
@@ -34,7 +46,7 @@ function PrescriptionsTable() {
             </tr>
           </thead>
           <tbody>
-            {previousPrescriptions.map((prescription) => (
+            {previousPrescriptions.filter(filterFn).map((prescription) => (
               <tr key={prescription.id}>
                 <td>{prescription.id}</td>
                 <td>{prescription.date}</td>
