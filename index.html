@@ -11,6 +11,22 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     />
     <title>Hospital</title>
+    <style>
+      /* Webkit/Blink only, Firefox already has pretty scrollbars */
+      *::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: var(--joy-palette-background-level3);
+        border-radius: 20px;
+        border: 2px solid var(--joy-palette-background-level1);
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
