@@ -10,7 +10,7 @@ function AdmissionPage() {
 
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 3 }}>Admission #{params.admissionId}</Typography>
+      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Admission #{params.admissionId}</Typography>
       <Grid container spacing={2}>
         {/* Main grid */}
         <Grid xs={12} md={10}>

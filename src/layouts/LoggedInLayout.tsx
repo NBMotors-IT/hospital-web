@@ -32,7 +32,7 @@ function LoggedInLayout() {
         <Sidebar />
 
         {/* Content */}
-        <Box width='100%' p={4}>
+        <Box width='100%' p={2}>
           <Outlet />
         </Box>
       </Box>

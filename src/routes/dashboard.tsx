@@ -3,7 +3,7 @@ import { Card, Grid, Typography } from '@mui/joy';
 function DashboardPage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 3 }}>Hello, Dr Yournamehere</Typography>
+      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Hello, Dr Yournamehere</Typography>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
           <Card variant='solid' color='success' sx={{ minHeight: 150, boxShadow: 'sm' }}>
