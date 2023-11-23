@@ -12,7 +12,13 @@
     />
     <title>Hospital</title>
     <style>
-      /* Webkit/Blink only, Firefox already has pretty scrollbars */
+      /* Firefox */
+      * {
+        scrollbar-color: var(--joy-palette-background-level3) transparent;
+        scrollbar-width: thin;
+      }
+
+      /* Webkit/Blink only */
       *::-webkit-scrollbar {
         width: 10px;
       }
