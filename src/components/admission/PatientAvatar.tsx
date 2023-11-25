@@ -1,7 +1,7 @@
-import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
-import { Avatar, Badge, ColorPaletteProp } from '@mui/joy';
+import { Avatar, Badge } from '@mui/joy';
 import { AdmissionStatus } from '../../types/admissionStatus';
 import React from 'react';
+import { admissionColorFromStatus } from '../../utils';
 
 interface Props {
   status: AdmissionStatus
@@ -13,30 +13,14 @@ interface AvatarBadgeProps {
 }
 
 function PatientAvatarBadge({ status, children }: AvatarBadgeProps) {
-  let badgeContent: React.ReactNode;
-  let color: ColorPaletteProp;
-
-  switch (status) {
-    case 'admitted':
-      badgeContent = <Hotel />;
-      color = 'primary';
-      break;
-    case 'waiting':
-      badgeContent = <HourglassBottom />;
-      color = 'warning';
-      break;
-    case 'discharged':
-      badgeContent = <Favorite />;
-      color = 'success';
-      break;
-  }
+  const { element, color } = admissionColorFromStatus(status);
 
   return (
     <Badge
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       badgeInset='15%'
       color={color}
-      badgeContent={badgeContent}
+      badgeContent={element}
     >
       {children}
     </Badge>
