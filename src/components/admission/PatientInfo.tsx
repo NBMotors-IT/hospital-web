@@ -1,22 +1,17 @@
-import { Bloodtype, Height, Hotel, Scale } from '@mui/icons-material';
-import { Avatar, Badge, Box, Chip, Divider, FormControl, FormLabel, Input, Typography } from '@mui/joy';
+import { Bloodtype, Height, Scale } from '@mui/icons-material';
+import { Box, Chip, Divider, FormControl, FormLabel, Input, Typography } from '@mui/joy';
+import PatientStatusChip from './PatientStatusChip';
+import PatientAvatar from './PatientAvatar';
 
 function PatientInfo() {
   return (
     <>
       <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={2}>
-        <Badge
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-          badgeInset='15%'
-          color='primary'
-          badgeContent={<Hotel />} /* HourglassBottom + warning = waiting, Favorite + success = discharged */
-        >
-          <Avatar sx={{ width: 80, height: 80 }} />
-        </Badge>
+        <PatientAvatar status='admitted' />
         <Typography level='title-lg' my={2}>John Smith</Typography>
 
         <Box display='flex' flexDirection='column' alignItems='center' gap={1}>
-          <Chip variant='solid' color='primary' size='lg' startDecorator={<Hotel />}>Admitted</Chip>
+          <PatientStatusChip status='admitted' />
           <Box display='flex' gap={1}>
             <Chip variant='soft' color='danger' startDecorator={<Bloodtype />}>B-</Chip>
             <Chip variant='soft' startDecorator={<Scale />}>82 kg</Chip>
