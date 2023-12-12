@@ -45,7 +45,8 @@ function Sidebar() {
         width: '320px',
         height: '100vh',
         borderRight: '1px solid',
-        borderColor: 'divider'
+        borderColor: 'divider',
+        overflow: 'auto'
       }}>
         <Box display='flex' justifyContent='space-between'>
           <Box display='flex' gap={1} alignItems='center'>
