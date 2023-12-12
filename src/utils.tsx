@@ -36,15 +36,15 @@ export const admissionColorFromStatus = (status: AdmissionStatus) => {
 
   switch (status) {
     case 'admitted':
-      element = <Hotel />;
+      element = <Hotel fontSize='inherit' />;
       color = 'primary';
       break;
     case 'waiting':
-      element = <HourglassBottom />;
+      element = <HourglassBottom fontSize='inherit' />;
       color = 'warning';
       break;
     case 'discharged':
-      element = <Favorite />;
+      element = <Favorite fontSize='inherit' />;
       color = 'success';
       break;
   }

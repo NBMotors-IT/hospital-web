@@ -23,7 +23,7 @@ function MyAdmissionsPage() {
       <Card>
         <Table sx={{ 
           '& tr > *:last-child': { textAlign: 'right' },
-          '& tr > *:nth-child(2)': { width: '10%' },
+          '& tr > *:nth-child(2)': { width: '12%' },
           '& tr > *': { py: 2 }
         }}>
           <tbody>

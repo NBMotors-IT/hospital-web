@@ -1,4 +1,4 @@
-import { Close, Egg, Home, KeyboardArrowDown, LocalHospital } from '@mui/icons-material';
+import { Assignment, Close, Egg, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from '../Toggler';
 import SidebarNavLink from './SidebarNavLink';
@@ -71,7 +71,7 @@ function Sidebar() {
         <Divider />
 
         {/* Sidebar menu links */}
-        <List variant='plain' sx={{ gap: 1 }}>
+        <List variant='plain' size='lg' sx={{ gap: 1 }}>
           <ListItem>
             <ListItemButton component={SidebarNavLink} to='/dashboard'>
               <ListItemDecorator>
@@ -81,15 +81,51 @@ function Sidebar() {
             </ListItemButton>
           </ListItem>
 
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/myadmissions'>
+              <ListItemDecorator>
+                <Hotel />
+              </ListItemDecorator>
+              <Typography level='title-sm'>My Admissions</Typography>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/pharmacy'>
+              <ListItemDecorator>
+                <Medication />
+              </ListItemDecorator>
+              <Typography level='title-sm'>Pharmacy</Typography>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/documents'>
+              <ListItemDecorator>
+                <Assignment />
+              </ListItemDecorator>
+              <Typography level='title-sm'>Documents</Typography>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/messages'>
+              <ListItemDecorator>
+                <Email />
+              </ListItemDecorator>
+              <Typography level='title-sm'>Messages</Typography>
+            </ListItemButton>
+          </ListItem>
+
           <ListItem nested>
             <Toggler
               renderToggle={({ open, setOpen }) => (
                 <ListItemButton onClick={() => setOpen(!open)}>
                   <ListItemDecorator>
-                    <Egg />
+                    <Group />
                   </ListItemDecorator>
                   <ListItemContent>
-                    <Typography level='title-sm'>Eggs</Typography>
+                    <Typography level='title-sm'>Staff</Typography>
                   </ListItemContent>
                   <KeyboardArrowDown
                     sx={{ transform: open ? 'rotate(180deg)' : 'none' }}
@@ -97,24 +133,21 @@ function Sidebar() {
                 </ListItemButton>
               )}
             >
-              <List sx={{ gap: 0.5 }}>
+              <List sx={{ gap: 0.5, pl: 6 }}>
                 <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton><Typography level='title-sm'>Add egg</Typography></ListItemButton>
+                  <ListItemButton><Typography level='title-sm'>Doctors</Typography></ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton><Typography level='title-sm'>List eggs</Typography></ListItemButton>
+                  <ListItemButton><Typography level='title-sm'>Nurses</Typography></ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton><Typography level='title-sm'>Laborants</Typography></ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton><Typography level='title-sm'>Staff</Typography></ListItemButton>
                 </ListItem>
               </List>
             </Toggler>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              <ListItemDecorator>
-                <Egg />
-              </ListItemDecorator>
-              <Typography level='title-sm'>Another Egg</Typography>
-            </ListItemButton>
           </ListItem>
         </List>
 
