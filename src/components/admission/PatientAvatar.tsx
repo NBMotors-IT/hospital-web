@@ -4,7 +4,8 @@ import React from 'react';
 import { admissionColorFromStatus } from '../../utils';
 
 interface Props {
-  status: AdmissionStatus
+  status: AdmissionStatus,
+  size?: number
 }
 
 interface AvatarBadgeProps {
@@ -27,10 +28,10 @@ function PatientAvatarBadge({ status, children }: AvatarBadgeProps) {
   );
 }
 
-function PatientAvatar({ status } : Props) {
+function PatientAvatar({ status, size = 80 } : Props) {
   return (
     <PatientAvatarBadge status={status}>
-      <Avatar sx={{ width: 80, height: 80 }} />
+      <Avatar sx={{ width: size, height: size }} />
     </PatientAvatarBadge>
   );
 }

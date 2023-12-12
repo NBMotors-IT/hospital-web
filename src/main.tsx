@@ -14,6 +14,7 @@ import DashboardPage from './routes/dashboard.tsx';
 import LoggedInLayout from './layouts/LoggedInLayout.tsx';
 import AdmissionPage from './routes/admission.tsx';
 import NotFoundPage from './routes/special/notfound.tsx';
+import MyAdmissionsPage from './routes/myadmissions.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route element={<LoggedInLayout />}>
             <Route path='dashboard' element={<DashboardPage />} />
 
+            <Route path='myadmissions' element={<MyAdmissionsPage />} />
             <Route path='admission/:admissionId' element={<AdmissionPage />} />
           </Route>
 
