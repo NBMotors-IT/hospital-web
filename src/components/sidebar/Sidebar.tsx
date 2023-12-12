@@ -1,4 +1,4 @@
-import { Assignment, Close, Egg, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
+import { Assignment, Close, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from '../Toggler';
 import SidebarNavLink from './SidebarNavLink';
