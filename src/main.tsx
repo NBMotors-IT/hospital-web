@@ -15,6 +15,7 @@ import LoggedInLayout from './layouts/LoggedInLayout.tsx';
 import AdmissionPage from './routes/admission.tsx';
 import NotFoundPage from './routes/special/notfound.tsx';
 import MyAdmissionsPage from './routes/myadmissions.tsx';
+import MessagesPage from './routes/messages.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -29,6 +30,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
             <Route path='myadmissions' element={<MyAdmissionsPage />} />
             <Route path='admission/:admissionId' element={<AdmissionPage />} />
+
+            <Route path='messages' element={<MessagesPage />} />
           </Route>
 
           {/* 404 Not Found */}

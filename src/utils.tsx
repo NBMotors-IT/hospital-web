@@ -51,3 +51,8 @@ export const admissionColorFromStatus = (status: AdmissionStatus) => {
 
   return { element, color };
 }
+
+export const truncateString = (str: string, length: number) => {
+  const dots = str.length > length ? '...' : '';
+  return str.substring(0, Math.min(length, str.length)) + dots;
+}
