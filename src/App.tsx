@@ -7,11 +7,13 @@ function App() {
     <div>
       <CssVarsProvider disableTransitionOnChange defaultMode='light'>
         <CssBaseline />
-        <Box sx={{
-          backgroundColor: 'background.level1',
-          display: 'flex',
-          minHeight: '100dvh'
-        }}>
+        <Box
+          sx={{
+            backgroundColor: 'background.level1',
+            display: 'flex',
+            minHeight: '100dvh'
+          }}
+        >
           <Outlet />
         </Box>
       </CssVarsProvider>

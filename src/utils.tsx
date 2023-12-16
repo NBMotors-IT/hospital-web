@@ -51,3 +51,19 @@ export const admissionColorFromStatus = (status: AdmissionStatus) => {
 
   return { element, color };
 }
+
+export const truncateString = (str: string, length: number) => {
+  const dots = str.length > length ? '...' : '';
+  return str.substring(0, Math.min(length, str.length)) + dots;
+}
+
+// Format date as HH:MM if less than 24h ago, or {day} {short_month} if more
+export const shortTimeFormat = (date: Date) => {
+  const diff = new Date().getTime() - date.getTime();
+
+  if (diff < 24 * 60 * 60 * 1000) {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  } else {
+    return date.toLocaleDateString([], { day: 'numeric', month: 'short' });
+  }
+}

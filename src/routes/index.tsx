@@ -3,23 +3,27 @@ import { Link } from 'react-router-dom';
 
 function IndexPage() {
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-    }}>
-      <Sheet sx={{
+    <Box
+      sx={{
         display: 'flex',
-        // width: 400,
-        px: 3,
-        py: 3,
-        gap: 2,
         flexDirection: 'column',
-        borderRadius: 'sm',
-        boxShadow: 'md'
-      }}>
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+      }}
+    >
+      <Sheet
+        sx={{
+          display: 'flex',
+          // width: 400,
+          px: 3,
+          py: 3,
+          gap: 2,
+          flexDirection: 'column',
+          borderRadius: 'sm',
+          boxShadow: 'md'
+        }}
+      >
         <div>
           <Typography textAlign='center' level='h2'>Hospital</Typography>
           <Typography textAlign='center' level='title-md'>Emergency Room Module</Typography>
