@@ -17,6 +17,7 @@ import NotFoundPage from './routes/special/notfound.tsx';
 import MyAdmissionsPage from './routes/myadmissions.tsx';
 import MessagesIndexPage from './routes/messages/index.tsx';
 import MessagePage from './routes/messages/message.tsx';
+import MessageCreatePage from './routes/messages/new.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -32,6 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='myadmissions' element={<MyAdmissionsPage />} />
             <Route path='admission/:admissionId' element={<AdmissionPage />} />
 
+            <Route path='messages/new' element={<MessageCreatePage />} />
             <Route path='messages/:messageId' element={<MessagePage />} />
             <Route path='messages' element={<MessagesIndexPage />} />
           </Route>
