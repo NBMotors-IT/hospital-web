@@ -1,4 +1,4 @@
-import { Button, Sheet, Table } from '@mui/joy';
+import { Box, Button, Table } from '@mui/joy';
 
 interface Admission {
   id: string,
@@ -17,7 +17,7 @@ const previousAdmissions: Admission[] = [
 function PrevAdmissionsTable() {
   return (
     <>
-      <Sheet sx={{ height: 180, overflow: 'auto' }}>
+      <Box overflow='auto' height='180px'>
         <Table stickyHeader size='sm' sx={{ '& tr > *:last-child': { textAlign: 'right' } }}>
           <thead>
             <tr>
@@ -38,7 +38,7 @@ function PrevAdmissionsTable() {
             ))}
           </tbody>
         </Table>
-      </Sheet>
+      </Box>
     </>
   );
 }

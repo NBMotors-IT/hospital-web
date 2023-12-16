@@ -1,5 +1,5 @@
 import { Search } from '@mui/icons-material';
-import { Button, Input, Sheet, Table } from '@mui/joy';
+import { Box, Button, Input, Table } from '@mui/joy';
 import { useState } from 'react';
 
 interface Prescription {
@@ -35,7 +35,7 @@ function PrescriptionsTable() {
     <>
       <Input startDecorator={<Search />} value={filter} onChange={e => setFilter(e.target.value)} />
 
-      <Sheet sx={{ height: 180, overflow: 'auto' }}>
+      <Box overflow='auto' height='180px'>
         <Table stickyHeader size='sm' sx={{ '& tr > *:last-child': { textAlign: 'right' } }}>
           <thead>
             <tr>
@@ -56,7 +56,7 @@ function PrescriptionsTable() {
             ))}
           </tbody>
         </Table>
-      </Sheet>
+      </Box>
     </>
   );
 }

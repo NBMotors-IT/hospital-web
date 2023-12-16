@@ -1,5 +1,5 @@
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
-import { Button, IconButton, Sheet, Table } from '@mui/joy';
+import { Box, Button, IconButton, Sheet, Table } from '@mui/joy';
 import React from 'react';
 
 interface FileData {
@@ -88,7 +88,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
 
 function DocumentsTable() {
   return (
-    <Sheet sx={{ height: { md: '490px' }, overflow: 'auto' }}>
+    <Box overflow='auto' height={{ md: '490px' }}>
       <Table
         aria-label='collapsible table'
         size='sm'
@@ -112,7 +112,7 @@ function DocumentsTable() {
           ))}
         </tbody>
       </Table>
-    </Sheet>
+    </Box>
   );
 }
 
