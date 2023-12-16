@@ -17,16 +17,16 @@ function MessagePage() {
     <>
       <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Messages</Typography>
       <Card>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box display='flex' gap={1}>
           {/* TODO: Pass recipient (and message?) */}
           <Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Reply />}>Reply</Button>
 
           <Button component={Link} to={'/messages/'} variant='soft' startDecorator={<Delete />}>Delete</Button>
         </Box>
 
-        <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+        <Box display='flex' alignItems='center' gap={3}>
           <Avatar sx={{ width: 64, height: 64 }} />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.3 }}>
+          <Box display='flex' flexDirection='column' gap={0.3}>
             <Typography fontWeight='600'>{message.from}</Typography>
             <Typography level='body-sm'>{message.sentDate.toLocaleString()}</Typography>
           </Box>

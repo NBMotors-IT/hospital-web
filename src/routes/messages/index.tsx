@@ -19,14 +19,7 @@ function MessagesIndexPage() {
       <Card>
         <Box><Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Create />}>New message</Button></Box>
 
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 1,
-            width: '100%',
-          }}
-        >
+        <Box display='flex' flexDirection='column' gap={1}>
           {messages.map((message) => (
             <MessagePreview message={message} />
           ))}

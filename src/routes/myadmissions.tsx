@@ -32,10 +32,8 @@ function MyAdmissionsPage() {
             {admissions.map((admission) => (
               <tr key={admission.id}>
                 <td>
-                  <Box
+                  <Box display='flex' alignItems='center'
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
                       gap: { xs: 1, md: 4 },
                       flexDirection: { xs: 'column', md: 'row' }
                     }}

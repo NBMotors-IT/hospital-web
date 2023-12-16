@@ -3,15 +3,7 @@ import { Link } from 'react-router-dom';
 
 function IndexPage() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-      }}
-    >
+    <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' width='100%'>
       <Sheet
         sx={{
           display: 'flex',

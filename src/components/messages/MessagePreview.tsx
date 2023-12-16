@@ -30,11 +30,11 @@ function MessagePreview({ message }: Props) {
         textDecoration: 'none'
       }}
     >
-      <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+      <Box display='flex' alignItems='center' gap={3}>
         <Badge invisible={message.read}>
           <Avatar sx={{ width: 64, height: 64 }} />
         </Badge>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.3 }}>
+        <Box display='flex' flexDirection='column' gap={0.3}>
           <Typography fontWeight='600'>{message.from}</Typography>
           <Typography level={message.read ? 'body-sm' : 'title-sm'}>{message.title}</Typography>
           <Typography level='body-sm'>{truncateString(message.text, messageLengthLimit)}</Typography>
