@@ -1,8 +1,8 @@
 import { Box, Button, Card, Typography } from '@mui/joy';
 import { Link } from 'react-router-dom';
 import { Create } from '@mui/icons-material';
-import { Message } from '../types/message';
-import MessagePreview from '../components/messages/MessagePreview';
+import { Message } from '../../types/message';
+import MessagePreview from '../../components/messages/MessagePreview';
 
 const messages: Message[] = [
   { id: '4', from: 'Doctor McDoctorface', title: 'Please reply', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo, diam eget commodo aliquam, dolor tortor interdum metus, eu iaculis ligula nisl non massa. Nulla ut pretium turpis. Morbi ultrices urna sit amet mi volutpat vestibulum. Proin quis enim mauris. Praesent finibus dictum mattis.', sentDate: new Date(), read: false },
@@ -12,7 +12,7 @@ const messages: Message[] = [
   { id: '0', from: 'Administrator', title: 'Account activation', text: 'Hello, your account has been activated!', sentDate: new Date('2023-01-01T12:00'), read: true }
 ]
 
-function MessagesPage() {
+function MessagesIndexPage() {
   return (
     <>
       <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Messages</Typography>
@@ -36,4 +36,4 @@ function MessagesPage() {
   );
 }
 
-export default MessagesPage;
+export default MessagesIndexPage;
