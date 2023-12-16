@@ -8,7 +8,7 @@ interface Props {
   message: Message
 }
 
-function MessagePreview({ message } : Props) {
+function MessagePreview({ message }: Props) {
   const theme = useTheme();
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
@@ -17,33 +17,34 @@ function MessagePreview({ message } : Props) {
   const messageLengthLimit = isMd ? (isLg ? 200 : 100) : (isSm ? 80 : 30);
 
   return (
-    <Card key={message.id} variant='soft' component={Link} to={`/messages/${message.id}`} sx={{ 
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      p: 1,
-      backgroundColor: 'background.surface',
-      ':hover': {
-        backgroundColor: 'background.level2'
-      },
-      textDecoration: 'none'
-    }}
-  >
-    <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
-      <Badge invisible={message.read}>
-        <Avatar sx={{ width: 64, height: 64 }} />
-      </Badge>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.3 }}>
-        <Typography fontWeight='600'>{message.from}</Typography>
-        <Typography level={message.read ? 'body-sm' : 'title-sm'}>{message.title}</Typography>
-        <Typography level='body-sm'> - {truncateString(message.text, messageLengthLimit)}</Typography>
+    <Card key={message.id} variant='soft' component={Link} to={`/messages/${message.id}`}
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        p: 1,
+        backgroundColor: 'background.surface',
+        ':hover': {
+          backgroundColor: 'background.level2'
+        },
+        textDecoration: 'none'
+      }}
+    >
+      <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+        <Badge invisible={message.read}>
+          <Avatar sx={{ width: 64, height: 64 }} />
+        </Badge>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.3 }}>
+          <Typography fontWeight='600'>{message.from}</Typography>
+          <Typography level={message.read ? 'body-sm' : 'title-sm'}>{message.title}</Typography>
+          <Typography level='body-sm'> - {truncateString(message.text, messageLengthLimit)}</Typography>
+        </Box>
       </Box>
-    </Box>
 
-    <Box>
-      <Typography level='body-sm'>{shortTimeFormat(message.sentDate)}</Typography>
-    </Box>
-  </Card>
+      <Box>
+        <Typography level='body-sm'>{shortTimeFormat(message.sentDate)}</Typography>
+      </Box>
+    </Card>
   )
 }
 

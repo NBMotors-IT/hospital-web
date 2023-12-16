@@ -8,7 +8,8 @@ function LoggedInLayout() {
   return (
     <Box display='flex' flexDirection='column' width='100%'>
       {/* Header, only for toggling sidebar on mobile? */}
-      <Sheet sx={{
+      <Sheet
+        sx={{
           display: { xs: 'flex', xl: 'none' },
           position: 'sticky',
           top: 0,
@@ -17,7 +18,8 @@ function LoggedInLayout() {
           borderBottom: '1px solid',
           borderColor: 'background.level1',
           boxShadow: 'sm'
-      }}>
+        }}
+      >
         <IconButton
           onClick={() => toggleSidebar()}
           variant='outlined'

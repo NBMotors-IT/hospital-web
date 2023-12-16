@@ -19,16 +19,17 @@ function MessagesPage() {
       <Card>
         <Box><Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Create />}>New message</Button></Box>
 
-        <Box sx={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: 1, 
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 1,
             width: '100%',
           }}
         >
-            {messages.map((message) => (
-              <MessagePreview message={message} />
-            ))}
+          {messages.map((message) => (
+            <MessagePreview message={message} />
+          ))}
         </Box>
       </Card>
     </>

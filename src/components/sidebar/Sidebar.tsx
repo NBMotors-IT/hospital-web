@@ -8,46 +8,50 @@ import DarkModeToggle from '../common/DarkModeToggle';
 function Sidebar() {
   return (
     <>
-      <Sheet onClick={() => closeSidebar()} sx={{
-        display: {
-          xs: 'block',
-          xl: 'none'
-        },
-        position: 'fixed',
-        transform: {
-          xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
-          xl: 'none'
-        },
-        top: 0,
-        zIndex: 9998,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'background.backdrop',
-        backdropFilter: 'blur(8px)'
-      }} />
+      <Sheet onClick={() => closeSidebar()}
+        sx={{
+          display: {
+            xs: 'block',
+            xl: 'none'
+          },
+          position: 'fixed',
+          transform: {
+            xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
+            xl: 'none'
+          },
+          top: 0,
+          zIndex: 9998,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'background.backdrop',
+          backdropFilter: 'blur(8px)'
+        }}
+      />
 
-      <Sheet sx={{
-        position: {
-          xs: 'fixed',
-          xl: 'sticky'
-        },
-        transform: {
-          xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
-          xl: 'none'
-        },
-        transition: 'transform 0.2s, width 0.2s',
-        top: 0,
-        zIndex: 9999,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 2,
-        p: 2,
-        width: '320px',
-        height: '100vh',
-        borderRight: '1px solid',
-        borderColor: 'divider',
-        overflow: 'auto'
-      }}>
+      <Sheet
+        sx={{
+          position: {
+            xs: 'fixed',
+            xl: 'sticky'
+          },
+          transform: {
+            xs: 'translateX(calc(100% * (var(--SideNavigation-slideIn, 0) - 1)))',
+            xl: 'none'
+          },
+          transition: 'transform 0.2s, width 0.2s',
+          top: 0,
+          zIndex: 9999,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          p: 2,
+          width: '320px',
+          height: '100vh',
+          borderRight: '1px solid',
+          borderColor: 'divider',
+          overflow: 'auto'
+        }}
+      >
         <Box display='flex' justifyContent='space-between'>
           <Box display='flex' gap={1} alignItems='center'>
             <LocalHospital />
@@ -131,8 +135,7 @@ function Sidebar() {
                     sx={{ transform: open ? 'rotate(180deg)' : 'none' }}
                   />
                 </ListItemButton>
-              )}
-            >
+              )}>
               <List sx={{ gap: 0.5, pl: 6 }}>
                 <ListItem sx={{ mt: 0.5 }}>
                   <ListItemButton><Typography level='title-sm'>Doctors</Typography></ListItemButton>

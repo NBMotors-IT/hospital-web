@@ -21,26 +21,30 @@ function MyAdmissionsPage() {
     <>
       <Typography color='neutral' level='h1' sx={{ mb: 2 }}>My Admissions</Typography>
       <Card>
-        <Table sx={{ 
-          '& tr > *:last-child': { textAlign: 'right' },
-          '& tr > *:nth-child(2)': { width: '12%' },
-          '& tr > *': { py: 2 }
-        }}>
+        <Table
+          sx={{
+            '& tr > *:last-child': { textAlign: 'right' },
+            '& tr > *:nth-child(2)': { width: '12%' },
+            '& tr > *': { py: 2 }
+          }}
+        >
           <tbody>
             {admissions.map((admission) => (
               <tr key={admission.id}>
                 <td>
-                  <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: { xs: 1, md: 4 },
-                    flexDirection: { xs: 'column', md: 'row' }
-                  }}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: { xs: 1, md: 4 },
+                      flexDirection: { xs: 'column', md: 'row' }
+                    }}
+                  >
                     <PatientAvatar status={admission.status} size={48} />
                     <Typography fontWeight='600' textAlign='center'>{admission.name}</Typography>
                   </Box>
                 </td>
-                <td>{admission.datetime.toLocaleTimeString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' })}</td>
+                <td>{admission.datetime.toLocaleTimeString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td>
                 <td><Button component={Link} to={`/admission/${admission.id}`} variant='plain'>View</Button></td>
               </tr>
             ))}
