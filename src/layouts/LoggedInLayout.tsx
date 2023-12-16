@@ -1,7 +1,7 @@
 import { Box, IconButton, Sheet } from '@mui/joy';
 import { Outlet } from 'react-router-dom';
-import Sidebar from '../components/sidebar/Sidebar';
 import { Menu } from '@mui/icons-material';
+import Sidebar from '../components/sidebar/Sidebar';
 import { toggleSidebar } from '../utils';
 
 function LoggedInLayout() {

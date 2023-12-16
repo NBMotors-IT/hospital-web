@@ -1,7 +1,7 @@
 import { Box, Button, Card, Table, Typography } from '@mui/joy';
+import { Link } from 'react-router-dom';
 import PatientAvatar from '../components/admission/PatientAvatar';
 import { AdmissionStatus } from '../types/admissionStatus';
-import { Link } from 'react-router-dom';
 
 interface Admission {
   id: string,
@@ -14,7 +14,7 @@ const admissions: Admission[] = [
   { id: '0', name: 'John Doe', status: 'admitted', datetime: new Date('2023-02-12T12:00') },
   { id: '1', name: 'Jane Doe', status: 'waiting', datetime: new Date('2023-02-12T13:12') },
   { id: '2', name: 'James Smith', status: 'discharged', datetime: new Date('2023-02-12T15:22') }
-]
+];
 
 function MyAdmissionsPage() {
   return (

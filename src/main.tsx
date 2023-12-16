@@ -1,11 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App.tsx';
 
@@ -19,6 +15,7 @@ import MessagesIndexPage from './routes/messages/index.tsx';
 import MessagePage from './routes/messages/message.tsx';
 import MessageCreatePage from './routes/messages/new.tsx';
 
+// eslint-disable-next-line unicorn/prefer-query-selector
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>

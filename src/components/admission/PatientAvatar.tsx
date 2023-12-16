@@ -1,6 +1,6 @@
 import { Avatar, Badge } from '@mui/joy';
+import * as React from 'react';
 import { AdmissionStatus } from '../../types/admissionStatus';
-import React from 'react';
 import { admissionColorFromStatus } from '../../utils';
 
 interface Props {

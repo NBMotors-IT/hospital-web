@@ -1,4 +1,4 @@
-import { CssVarsProvider, CssBaseline, Box } from '@mui/joy';
+import { Box, CssBaseline, CssVarsProvider } from '@mui/joy';
 
 import { Outlet } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { Box, Button, IconButton, Sheet, Table } from '@mui/joy';
-import React from 'react';
+import * as React from 'react';
 
 interface FileData {
   fileName: string,
@@ -27,8 +27,8 @@ const data: DepartmentData[] = [
 ];
 
 function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
-  const { row } = props;
-  const [open, setOpen] = React.useState(props.initialOpen || false);
+  const { row, initialOpen } = props;
+  const [open, setOpen] = React.useState(initialOpen || false);
 
   return (
     <React.Fragment>

@@ -6,12 +6,13 @@ interface Admission {
   doctor: string
 }
 
+const doctor = 'John Smith';
 const previousAdmissions: Admission[] = [
-  { id: '6457', date: new Date('2023-02-12T12:00'), doctor: 'John Smith' },
-  { id: '3256', date: new Date('2023-01-01T12:00'), doctor: 'John Smith' },
-  { id: '1111', date: new Date('2022-12-31T12:00'), doctor: 'John Smith' },
-  { id: '0101', date: new Date('2021-04-11T12:00'), doctor: 'John Smith' },
-  { id: '0000', date: new Date('2020-09-22T12:00'), doctor: 'John Smith' }
+  { id: '6457', date: new Date('2023-02-12T12:00'), doctor: doctor },
+  { id: '3256', date: new Date('2023-01-01T12:00'), doctor: doctor },
+  { id: '1111', date: new Date('2022-12-31T12:00'), doctor: doctor },
+  { id: '0101', date: new Date('2021-04-11T12:00'), doctor: doctor },
+  { id: '0000', date: new Date('2020-09-22T12:00'), doctor: doctor }
 ];
 
 function PrevAdmissionsTable() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavLink as NavLinkBase, To } from 'react-router-dom';
 import { closeSidebar } from '../../utils';
 
@@ -10,6 +10,7 @@ interface Props {
   [x:string]: any;
 }
 
+// eslint-disable-next-line react/display-name
 const SidebarNavLink = React.forwardRef<HTMLAnchorElement, Props>(({ className = '', to, dontCloseSidebar = false, ...other }: Props, ref) => (
   <NavLinkBase
     ref={ref}

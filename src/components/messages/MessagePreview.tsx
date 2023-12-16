@@ -1,8 +1,8 @@
-import { Avatar, Badge, Box, Card, Typography, useTheme } from "@mui/joy";
-import { Message } from "../../types/message";
-import { Link } from "react-router-dom";
-import { shortTimeFormat, truncateString } from "../../utils";
-import { useMediaQuery } from "@mui/material";
+import { Avatar, Badge, Box, Card, Typography, useTheme } from '@mui/joy';
+import { Link } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
+import { Message } from '../../types/message';
+import { shortTimeFormat, truncateString } from '../../utils';
 
 interface Props {
   message: Message
@@ -17,7 +17,7 @@ function MessagePreview({ message }: Props) {
   const messageLengthLimit = isMd ? (isLg ? 200 : 100) : (isSm ? 80 : 30);
 
   return (
-    <Card key={message.id} variant='soft' component={Link} to={`/messages/${message.id}`}
+    <Card variant='soft' component={Link} to={`/messages/${message.id}`}
       sx={{
         display: 'flex',
         flexDirection: 'row',
@@ -45,7 +45,7 @@ function MessagePreview({ message }: Props) {
         <Typography level='body-sm'>{shortTimeFormat(message.sentDate)}</Typography>
       </Box>
     </Card>
-  )
+  );
 }
 
 export default MessagePreview;
