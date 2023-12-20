@@ -4,13 +4,19 @@ import DocumentsTable from '../components/admission/DocumentsTable';
 import PatientInfo from '../components/admission/PatientInfo';
 import PrescriptionsTable from '../components/admission/PrescriptionsTable';
 import PrevAdmissionsTable from '../components/admission/PrevAdmissionsTable';
+import Breadcrumb from '../components/common/Breadcrumb';
+
+const linksMap = new Map<string, string>([
+  ['/myadmissions', 'Admissions']
+]);
 
 function AdmissionPage() {
   const params = useParams();
 
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Admission #{params.admissionId}</Typography>
+      <Breadcrumb links={linksMap} current={`Admission #${params.admissionId}`} />
+
       <Grid container spacing={2}>
         {/* Main grid */}
         <Grid xs={12} md={10}>

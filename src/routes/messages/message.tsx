@@ -2,6 +2,7 @@ import { Avatar, Box, Button, Card, Typography } from '@mui/joy';
 import { Link } from 'react-router-dom';
 import { Delete, Reply } from '@mui/icons-material';
 import { Message } from '../../types/message';
+import Breadcrumb from '../../components/common/Breadcrumb';
 
 const message: Message = {
   id: '1',
@@ -12,10 +13,15 @@ const message: Message = {
   read: false
 };
 
+const linksMap = new Map<string, string>([
+  ['/messages', 'Messages']
+]);
+
 function MessagePage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Messages</Typography>
+      <Breadcrumb links={linksMap} current={message.title} />
+
       <Card>
         <Box display='flex' gap={1}>
           {/* TODO: Pass recipient (and message?) */}

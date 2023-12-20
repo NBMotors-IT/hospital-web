@@ -1,11 +1,17 @@
-import { Box, Button, Card, FormControl, Input, Textarea, Typography } from '@mui/joy';
+import { Box, Button, Card, FormControl, Input, Textarea } from '@mui/joy';
 import { Link } from 'react-router-dom';
 import { Send } from '@mui/icons-material';
+import Breadcrumb from '../../components/common/Breadcrumb';
+
+const linksMap = new Map<string, string>([
+  ['/messages', 'Messages']
+]);
 
 function MessageCreatePage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Messages</Typography>
+      <Breadcrumb links={linksMap} current='New' />
+
       <Card>
         <Box>
           <Button component={Link} to={'/messages/'} variant='soft' startDecorator={<Send />}>Send</Button>

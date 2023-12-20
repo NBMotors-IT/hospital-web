@@ -2,12 +2,13 @@ import { Box, Button, Card, Table, Typography } from '@mui/joy';
 import { Link } from 'react-router-dom';
 import PatientAvatar from '../components/admission/PatientAvatar';
 import { AdmissionStatus } from '../types/admissionStatus';
+import Breadcrumb from '../components/common/Breadcrumb';
 
 interface Admission {
   id: string,
   name: string,
   status: AdmissionStatus,
-  datetime: Date,
+  datetime: Date
 }
 
 const admissions: Admission[] = [
@@ -19,7 +20,8 @@ const admissions: Admission[] = [
 function MyAdmissionsPage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>My Admissions</Typography>
+      <Breadcrumb current='Admissions' />
+
       <Card>
         <Table
           sx={{

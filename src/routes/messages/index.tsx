@@ -1,8 +1,9 @@
-import { Box, Button, Card, Typography } from '@mui/joy';
+import { Box, Button, Card } from '@mui/joy';
 import { Link } from 'react-router-dom';
 import { Create } from '@mui/icons-material';
 import { Message } from '../../types/message';
 import MessagePreview from '../../components/messages/MessagePreview';
+import Breadcrumb from '../../components/common/Breadcrumb';
 
 const doctor = 'Doctor McDoctorface';
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo, diam eget commodo aliquam, dolor tortor interdum metus, eu iaculis ligula nisl non massa. Nulla ut pretium turpis. Morbi ultrices urna sit amet mi volutpat vestibulum. Proin quis enim mauris. Praesent finibus dictum mattis.';
@@ -18,7 +19,8 @@ const messages: Message[] = [
 function MessagesIndexPage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Messages</Typography>
+      <Breadcrumb current='Messages' />
+
       <Card>
         <Box>
           <Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Create />}>New message</Button>
