@@ -1,4 +1,6 @@
+import { Favorite, Hotel, HourglassBottom, QuestionMark } from '@mui/icons-material';
 import { Card, Grid, Typography } from '@mui/joy';
+import CounterCard from '../components/dashboard/CounterCard';
 
 function DashboardPage() {
   return (
@@ -6,24 +8,24 @@ function DashboardPage() {
       <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Hello, Dr Yournamehere</Typography>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
-          <Card variant='solid' color='success' sx={{ minHeight: 150, boxShadow: 'sm' }}>
-            Some Stuff
-          </Card>
+          <CounterCard color='success' value={8} label='discharged'>
+            <Favorite sx={{ fontSize: 32 }} />
+          </CounterCard>
         </Grid>
         <Grid xs={12} md={3}>
-          <Card variant='solid' color='primary' sx={{ minHeight: 150, boxShadow: 'sm' }}>
-            Some Stuff
-          </Card>
+          <CounterCard color='primary' value={12} label='admitted'>
+            <Hotel sx={{ fontSize: 32 }} />
+          </CounterCard>
         </Grid>
         <Grid xs={12} md={3}>
-          <Card variant='solid' color='warning' sx={{ minHeight: 150, boxShadow: 'sm' }}>
-            Some Stuff
-          </Card>
+          <CounterCard color='warning' value={3} label='waiting'>
+            <HourglassBottom sx={{ fontSize: 32 }} />
+          </CounterCard>
         </Grid>
         <Grid xs={12} md={3}>
-          <Card variant='solid' color='neutral' sx={{ minHeight: 150, boxShadow: 'sm' }}>
-            Some Stuff
-          </Card>
+          <CounterCard color='neutral' value={42} label='placeholder'>
+            <QuestionMark sx={{ fontSize: 32 }} />
+          </CounterCard>
         </Grid>
 
         <Grid xs={12} md={8}>
