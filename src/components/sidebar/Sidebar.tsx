@@ -86,7 +86,7 @@ function Sidebar() {
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/myadmissions'>
+            <ListItemButton component={SidebarNavLink} to='/admissions'>
               <ListItemDecorator>
                 <Hotel />
               </ListItemDecorator>

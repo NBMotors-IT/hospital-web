@@ -8,9 +8,9 @@ import App from './App.tsx';
 import IndexPage from './routes/index.tsx';
 import DashboardPage from './routes/dashboard.tsx';
 import LoggedInLayout from './layouts/LoggedInLayout.tsx';
-import AdmissionPage from './routes/admission.tsx';
+import AdmissionPage from './routes/admissions/admission.tsx';
 import NotFoundPage from './routes/special/notfound.tsx';
-import MyAdmissionsPage from './routes/myadmissions.tsx';
+import AdmissionsIndexPage from './routes/admissions/index.tsx';
 import MessagesIndexPage from './routes/messages/index.tsx';
 import MessagePage from './routes/messages/message.tsx';
 import MessageCreatePage from './routes/messages/new.tsx';
@@ -27,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route element={<LoggedInLayout />}>
             <Route path='dashboard' element={<DashboardPage />} />
 
-            <Route path='myadmissions' element={<MyAdmissionsPage />} />
-            <Route path='admission/:admissionId' element={<AdmissionPage />} />
+            <Route path='admissions/:admissionId' element={<AdmissionPage />} />
+            <Route path='admissions' element={<AdmissionsIndexPage />} />
 
             <Route path='messages/new' element={<MessageCreatePage />} />
             <Route path='messages/:messageId' element={<MessagePage />} />

@@ -1,13 +1,13 @@
 import { Box, Button, Card, Divider, FormControl, FormLabel, Grid, Input, Textarea, Typography } from '@mui/joy';
 import { useParams } from 'react-router-dom';
-import DocumentsTable from '../components/admission/DocumentsTable';
-import PatientInfo from '../components/admission/PatientInfo';
-import PrescriptionsTable from '../components/admission/PrescriptionsTable';
-import PrevAdmissionsTable from '../components/admission/PrevAdmissionsTable';
-import Breadcrumb from '../components/common/Breadcrumb';
+import DocumentsTable from '../../components/admission/DocumentsTable';
+import PatientInfo from '../../components/admission/PatientInfo';
+import PrescriptionsTable from '../../components/admission/PrescriptionsTable';
+import PrevAdmissionsTable from '../../components/admission/PrevAdmissionsTable';
+import Breadcrumb from '../../components/common/Breadcrumb';
 
 const linksMap = new Map<string, string>([
-  ['/myadmissions', 'Admissions']
+  ['/admissions', 'Admissions']
 ]);
 
 function AdmissionPage() {
