@@ -1,6 +1,6 @@
 // https://github.com/mui/material-ui/blob/master/docs/data/joy/getting-started/templates/order-dashboard/components/Sidebar.tsx
-import { Box } from "@mui/joy";
-import React from "react";
+import { Box } from '@mui/joy';
+import * as React from 'react';
 
 function Toggler({
   defaultExpanded = false,

@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
 import { ColorPaletteProp } from '@mui/joy';
 import { AdmissionStatus } from './types/admissionStatus';
@@ -35,19 +36,39 @@ export const admissionColorFromStatus = (status: AdmissionStatus) => {
   let color: ColorPaletteProp;
 
   switch (status) {
-    case 'admitted':
+    case 'admitted': {
       element = <Hotel fontSize='inherit' />;
       color = 'primary';
       break;
-    case 'waiting':
+    }
+    case 'waiting': {
       element = <HourglassBottom fontSize='inherit' />;
       color = 'warning';
       break;
-    case 'discharged':
+    }
+    case 'discharged': {
       element = <Favorite fontSize='inherit' />;
       color = 'success';
       break;
+    }
   }
 
   return { element, color };
-}
+};
+
+export const truncateString = (str: string, length: number) => {
+  const dots = str.length > length ? '...' : '';
+  return str.slice(0, Math.max(0, Math.min(length, str.length))) + dots;
+};
+
+// Format date as HH:MM if less than 24h ago, or {day} {short_month} if more
+export const shortTimeFormat = (date: Date) => {
+  const diff = Date.now() - date.getTime();
+
+  // eslint-disable-next-line unicorn/prefer-ternary
+  if (diff < 24 * 60 * 60 * 1000) {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  } else {
+    return date.toLocaleDateString([], { day: 'numeric', month: 'short' });
+  }
+};

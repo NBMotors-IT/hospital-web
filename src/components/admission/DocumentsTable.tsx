@@ -1,6 +1,6 @@
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
-import { Button, IconButton, Sheet, Table } from '@mui/joy';
-import React from 'react';
+import { Box, Button, IconButton, Sheet, Table } from '@mui/joy';
+import * as React from 'react';
 
 interface FileData {
   fileName: string,
@@ -27,8 +27,8 @@ const data: DepartmentData[] = [
 ];
 
 function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
-  const { row } = props;
-  const [open, setOpen] = React.useState(props.initialOpen || false);
+  const { row, initialOpen } = props;
+  const [open, setOpen] = React.useState(initialOpen || false);
 
   return (
     <React.Fragment>
@@ -88,7 +88,7 @@ function Row(props: { row: DepartmentData; initialOpen?: boolean }) {
 
 function DocumentsTable() {
   return (
-    <Sheet sx={{ height: { md: '490px' }, overflow: 'auto' }}>
+    <Box overflow='auto' height={{ md: '490px' }}>
       <Table
         aria-label='collapsible table'
         size='sm'
@@ -112,7 +112,7 @@ function DocumentsTable() {
           ))}
         </tbody>
       </Table>
-    </Sheet>
+    </Box>
   );
 }
 

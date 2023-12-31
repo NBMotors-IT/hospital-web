@@ -10,10 +10,10 @@ export interface FetchOptions {
 }
 
 function useFetch<Type>(url: string, options: FetchOptions = {}) {
-  const { requestData = null, method = 'GET', immediate = true } = options;
+  const { requestData, method = 'GET', immediate = true } = options;
 
-  const [data, setData] = useState<Type | null>(null);
-  const [error, setError] = useState<any>(null);
+  const [data, setData] = useState<Type | null>();
+  const [error, setError] = useState<any>();
   const [isLoading, setIsLoading] = useState(true);
 
   const execute = useCallback(() => {
@@ -21,16 +21,27 @@ function useFetch<Type>(url: string, options: FetchOptions = {}) {
     
     let promise;
 
-    if (method === 'GET') {
-      promise = axiosInstance.get(url);
-    } else if (method === 'POST') {
-      promise = axiosInstance.post(url, requestData);
-    } else if (method === 'PUT') {
-      promise = axiosInstance.put(url, requestData);
-    } else if (method === 'DELETE') {
-      promise = axiosInstance.delete(url);
-    } else if (method === 'PATCH') {
-      promise = axiosInstance.patch(url, requestData);
+    switch (method) {
+      case 'GET': {
+        promise = axiosInstance.get(url);
+        break;
+      }
+      case 'POST': {
+        promise = axiosInstance.post(url, requestData);
+        break;
+      }
+      case 'PUT': {
+        promise = axiosInstance.put(url, requestData);
+        break;
+      }
+      case 'DELETE': {
+        promise = axiosInstance.delete(url);
+        break;
+      }
+      case 'PATCH': {
+        promise = axiosInstance.patch(url, requestData);
+        break;
+      }
     }
 
     return promise?.then((response) => {
