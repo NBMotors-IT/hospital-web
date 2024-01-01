@@ -2,21 +2,19 @@ import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { useTheme } from '@mui/joy';
 import { shortTimeFormat } from '../../utils';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -48,13 +46,11 @@ function AdmissionDischargeChart() {
     datasets: [
       {
         label: 'Admissions',
-        borderColor: theme.palette.primary[400],
         backgroundColor: theme.palette.primary[400],
         data: [2, 6, 14, 8, 3, 4, 12]
       },
       {
         label: 'Discharges',
-        borderColor: theme.palette.success[400],
         backgroundColor: theme.palette.success[400],
         data: [9, 7, 9, 12, 8, 5, 8]
       }
@@ -62,7 +58,7 @@ function AdmissionDischargeChart() {
   };
 
   return (
-    <Line options={chartOptions} data={chartData} />
+    <Bar options={chartOptions} data={chartData} />
   );
 }
 
