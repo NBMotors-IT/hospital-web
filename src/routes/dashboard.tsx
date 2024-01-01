@@ -1,6 +1,7 @@
 import { Favorite, Hotel, HourglassBottom, QuestionMark } from '@mui/icons-material';
 import { Card, Grid, Typography } from '@mui/joy';
 import CounterCard from '../components/dashboard/CounterCard';
+import AdmissionDischargeChart from '../components/dashboard/AdmissionDischargeChart';
 
 function DashboardPage() {
   return (
@@ -29,8 +30,8 @@ function DashboardPage() {
         </Grid>
 
         <Grid xs={12} md={8}>
-          <Card variant='plain' sx={{ minHeight: 450, boxShadow: 'sm' }}>
-            Some Stuff
+          <Card variant='plain' sx={{ height: { md: 450 }, boxShadow: 'sm' }}>
+            <AdmissionDischargeChart />
           </Card>
         </Grid>
         <Grid xs={12} md={4}>
