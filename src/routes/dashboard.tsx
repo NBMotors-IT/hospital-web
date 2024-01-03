@@ -1,6 +1,8 @@
-import { Favorite, Hotel, HourglassBottom, QuestionMark } from '@mui/icons-material';
+import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
 import { Card, Grid, Typography } from '@mui/joy';
 import CounterCard from '../components/dashboard/CounterCard';
+import AdmissionDischargeChart from '../components/dashboard/AdmissionDischargeChart';
+import BedOccupancyChart from '../components/dashboard/BedOccupancyChart';
 
 function DashboardPage() {
   return (
@@ -18,24 +20,30 @@ function DashboardPage() {
           </CounterCard>
         </Grid>
         <Grid xs={12} md={3}>
-          <CounterCard color='warning' value={3} label='waiting'>
+          <CounterCard color='warning' value={3} label='waiting (total)'>
             <HourglassBottom sx={{ fontSize: 32 }} />
           </CounterCard>
         </Grid>
         <Grid xs={12} md={3}>
-          <CounterCard color='neutral' value={42} label='placeholder'>
-            <QuestionMark sx={{ fontSize: 32 }} />
+          <CounterCard color='warning' value={1} label='waiting (your admissions)'>
+            <HourglassBottom sx={{ fontSize: 32 }} />
           </CounterCard>
         </Grid>
 
-        <Grid xs={12} md={8}>
-          <Card variant='plain' sx={{ minHeight: 450, boxShadow: 'sm' }}>
-            Some Stuff
+        <Grid xs={12} md={9}>
+          <Card variant='plain' sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 6, boxShadow: 'sm' }}>
+            <Typography level='title-md'>Admissions statistics</Typography>
+
+            <AdmissionDischargeChart />
           </Card>
         </Grid>
-        <Grid xs={12} md={4}>
-          <Card variant='plain' sx={{ minHeight: 450, boxShadow: 'sm' }}>
-            Some Stuff
+        <Grid xs={12} md={3}>
+          <Card variant='plain' sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 12, boxShadow: 'sm' }}>
+            <Typography level='title-md'>Bed occupancy</Typography>
+
+            <BedOccupancyChart />
+
+            <Typography level='title-md' textAlign='center'>Total beds: 55</Typography>
           </Card>
         </Grid>
 
