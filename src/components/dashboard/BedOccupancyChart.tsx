@@ -4,6 +4,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2';
 import { useTheme } from '@mui/joy';
 
@@ -22,6 +23,16 @@ function BedOccupancyChart() {
     plugins: {
       legend: {
         position: 'top' as const
+      },
+      datalabels: {
+        color: theme.palette.common.white,
+        labels: {
+          value: {
+            font: {
+              weight: 'bold' as const
+            }
+          }
+        }
       }
     }
   };
@@ -41,7 +52,8 @@ function BedOccupancyChart() {
   };
 
   return (
-    <Doughnut options={chartOptions} data={chartData} />
+    // @ts-expect-error https://github.com/chartjs/Chart.js/issues/10896
+    <Doughnut plugins={[ChartDataLabels]} options={chartOptions} data={chartData} />
   );
 }
 

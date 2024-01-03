@@ -7,6 +7,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Bar } from 'react-chartjs-2';
 import { useTheme } from '@mui/joy';
 import { shortTimeFormat } from '../../utils';
@@ -37,6 +38,15 @@ function AdmissionDischargeChart() {
     plugins: {
       legend: {
         position: 'top' as const
+      },
+      datalabels: {
+        color: theme.palette.common.white,
+        labels: {
+          value: {
+            anchor: 'end' as const,
+            align: 'start' as const
+          }
+        }
       }
     }
   };
@@ -58,7 +68,7 @@ function AdmissionDischargeChart() {
   };
 
   return (
-    <Bar options={chartOptions} data={chartData} />
+    <Bar plugins={[ChartDataLabels]} options={chartOptions} data={chartData} />
   );
 }
 
