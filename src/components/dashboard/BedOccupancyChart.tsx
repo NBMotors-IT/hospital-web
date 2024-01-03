@@ -38,7 +38,7 @@ function BedOccupancyChart() {
   };
 
   const chartData = {
-    labels: ['Occupied', 'Free'],
+    labels: ['Free', 'Occupied'],
     datasets: [
       {
         label: '# of beds',
@@ -46,7 +46,7 @@ function BedOccupancyChart() {
           theme.palette.primary[400],
           theme.palette.success[400]
         ],
-        data: [43, 12]
+        data: [12, 43]
       }
     ]
   };
