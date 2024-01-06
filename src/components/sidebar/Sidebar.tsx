@@ -1,4 +1,4 @@
-import { Assignment, Close, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
+import { Assignment, Biotech, Close, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import Toggler from '../Toggler';
 import { closeSidebar } from '../../utils';
@@ -109,6 +109,15 @@ function Sidebar() {
                 <Assignment />
               </ListItemDecorator>
               <Typography level='title-sm'>Documents</Typography>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/lab'>
+              <ListItemDecorator>
+                <Biotech />
+              </ListItemDecorator>
+              <Typography level='title-sm'>Lab</Typography>
             </ListItemButton>
           </ListItem>
 

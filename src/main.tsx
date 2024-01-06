@@ -14,6 +14,8 @@ import AdmissionsIndexPage from './routes/admissions/index.tsx';
 import MessagesIndexPage from './routes/messages/index.tsx';
 import MessagePage from './routes/messages/message.tsx';
 import MessageCreatePage from './routes/messages/new.tsx';
+import LabPage from './routes/lab/index.tsx';
+import AIDiagnosticsPage from './routes/lab/diagnostics.tsx';
 
 // eslint-disable-next-line unicorn/prefer-query-selector
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -29,6 +31,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
             <Route path='admissions/:admissionId' element={<AdmissionPage />} />
             <Route path='admissions' element={<AdmissionsIndexPage />} />
+
+            <Route path='lab/diagnostics' element={<AIDiagnosticsPage />} />
+            <Route path='lab' element={<LabPage />} />
 
             <Route path='messages/new' element={<MessageCreatePage />} />
             <Route path='messages/:messageId' element={<MessagePage />} />
