@@ -18,7 +18,10 @@ function LinkCard({ to, alignItems = 'initial', children }: Props) {
         p: 1,
         backgroundColor: 'background.surface',
         ':hover': {
-          backgroundColor: 'background.level2'
+          backgroundColor: 'neutral.plainHoverBg'
+        },
+        ':active': {
+          backgroundColor: 'neutral.plainActiveBg'
         },
         textDecoration: 'none'
       }}
