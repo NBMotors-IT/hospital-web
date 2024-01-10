@@ -8,6 +8,7 @@ interface Props {
 
 function StaffPreview({ employee }: Props) {
   return (
+    // TODO: Refactor as a shared LinkCard component?
     <Card variant='soft' component={Link} to={`/staff/${employee.id}`}
       sx={{
         display: 'flex',
@@ -26,7 +27,7 @@ function StaffPreview({ employee }: Props) {
         <Avatar sx={{ width: 64, height: 64 }} />
         <Box display='flex' flexDirection='column' gap={0.3}>
           <Typography fontWeight='600'>{employee.name} {employee.surname}</Typography>
-          <Typography level='body-sm'>{employee.role} of {employee.specialisation}</Typography>
+          <Typography level='body-sm'>{employee.role} - {employee.specialisation}</Typography>
         </Box>
       </Box>
 
