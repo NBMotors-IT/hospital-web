@@ -16,6 +16,7 @@ import MessagePage from './routes/messages/message.tsx';
 import MessageCreatePage from './routes/messages/new.tsx';
 import LabPage from './routes/lab/index.tsx';
 import AIDiagnosticsPage from './routes/lab/diagnostics.tsx';
+import StaffListPage from './routes/staff/index.tsx';
 
 // eslint-disable-next-line unicorn/prefer-query-selector
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -38,6 +39,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='messages/new' element={<MessageCreatePage />} />
             <Route path='messages/:messageId' element={<MessagePage />} />
             <Route path='messages' element={<MessagesIndexPage />} />
+
+            <Route path='staff' element={<StaffListPage />} />
           </Route>
 
           {/* 404 Not Found */}

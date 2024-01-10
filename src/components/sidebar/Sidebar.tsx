@@ -1,6 +1,5 @@
-import { Assignment, Biotech, Close, Email, Group, Home, Hotel, KeyboardArrowDown, LocalHospital, Medication } from '@mui/icons-material';
-import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Typography } from '@mui/joy';
-import Toggler from '../Toggler';
+import { Assignment, Biotech, Close, Email, Group, Home, Hotel, LocalHospital, Medication } from '@mui/icons-material';
+import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography } from '@mui/joy';
 import { closeSidebar } from '../../utils';
 import DarkModeToggle from '../common/DarkModeToggle';
 import SidebarNavLink from './SidebarNavLink';
@@ -130,36 +129,13 @@ function Sidebar() {
             </ListItemButton>
           </ListItem>
 
-          <ListItem nested>
-            <Toggler
-              renderToggle={({ open, setOpen }) => (
-                <ListItemButton onClick={() => setOpen(!open)}>
-                  <ListItemDecorator>
-                    <Group />
-                  </ListItemDecorator>
-                  <ListItemContent>
-                    <Typography level='title-sm'>Staff</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowDown
-                    sx={{ transform: open ? 'rotate(180deg)' : 'none' }}
-                  />
-                </ListItemButton>
-              )}>
-              <List sx={{ gap: 0.5, pl: 6 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton><Typography level='title-sm'>Doctors</Typography></ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton><Typography level='title-sm'>Nurses</Typography></ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton><Typography level='title-sm'>Laborants</Typography></ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton><Typography level='title-sm'>Staff</Typography></ListItemButton>
-                </ListItem>
-              </List>
-            </Toggler>
+          <ListItem>
+            <ListItemButton component={SidebarNavLink} to='/staff'>
+              <ListItemDecorator>
+                <Group />
+              </ListItemDecorator>
+              <Typography level='title-sm'>Staff</Typography>
+            </ListItemButton>
           </ListItem>
         </List>
 
