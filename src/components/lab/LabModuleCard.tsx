@@ -23,7 +23,9 @@ function LabModuleCard({ to, text, children }: Props) {
           boxShadow: 'lg',
           backgroundColor: 'neutral.plainHoverBg'
         },
-        transition: 'ease-in-out 0.2s'
+        ':active': {
+          backgroundColor: 'neutral.plainActiveBg'
+        }
       }}
     >
       {children}
