@@ -1,7 +1,7 @@
-import { Box, Card, Typography } from '@mui/joy';
-import { Link } from 'react-router-dom';
+import { Box, Typography } from '@mui/joy';
 import { shortTimeFormat } from '../../utils';
 import { Admission } from '../../types/admission';
+import LinkCard from '../common/LinkCard';
 import PatientAvatar from './PatientAvatar';
 
 interface Props {
@@ -10,19 +10,7 @@ interface Props {
 
 function AdmissionPreview({ admission }: Props) {
   return (
-    <Card variant='soft' component={Link} to={`/admissions/${admission.id}`}
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        p: 1,
-        backgroundColor: 'background.surface',
-        ':hover': {
-          backgroundColor: 'background.level2'
-        },
-        textDecoration: 'none'
-      }}
-    >
+    <LinkCard to={`/admissions/${admission.id}`}>
       <Box display='flex' alignItems='center' gap={3}>
         <PatientAvatar status={admission.status} size={64} />
         <Box display='flex' flexDirection='column' gap={0.3}>
@@ -34,7 +22,7 @@ function AdmissionPreview({ admission }: Props) {
       <Box>
         <Typography level='body-sm'>{shortTimeFormat(admission.datetime)}</Typography>
       </Box>
-    </Card>
+    </LinkCard>
   );
 }
 

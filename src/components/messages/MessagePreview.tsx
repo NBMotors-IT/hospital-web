@@ -1,8 +1,8 @@
-import { Avatar, Badge, Box, Card, Typography, useTheme } from '@mui/joy';
-import { Link } from 'react-router-dom';
+import { Avatar, Badge, Box, Typography, useTheme } from '@mui/joy';
 import { useMediaQuery } from '@mui/material';
 import { Message } from '../../types/message';
 import { shortTimeFormat, truncateString } from '../../utils';
+import LinkCard from '../common/LinkCard';
 
 interface Props {
   message: Message
@@ -17,19 +17,7 @@ function MessagePreview({ message }: Props) {
   const messageLengthLimit = isMd ? (isLg ? 200 : 100) : (isSm ? 80 : 30);
 
   return (
-    <Card variant='soft' component={Link} to={`/messages/${message.id}`}
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        p: 1,
-        backgroundColor: 'background.surface',
-        ':hover': {
-          backgroundColor: 'background.level2'
-        },
-        textDecoration: 'none'
-      }}
-    >
+    <LinkCard to={`/messages/${message.id}`}>
       <Box display='flex' alignItems='center' gap={3}>
         <Badge invisible={message.read}>
           <Avatar sx={{ width: 64, height: 64 }} />
@@ -44,7 +32,7 @@ function MessagePreview({ message }: Props) {
       <Box>
         <Typography level='body-sm'>{shortTimeFormat(message.sentDate)}</Typography>
       </Box>
-    </Card>
+    </LinkCard>
   );
 }
 

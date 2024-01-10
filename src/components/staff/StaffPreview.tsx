@@ -1,6 +1,6 @@
-import { Avatar, Box, Card, Typography } from '@mui/joy';
-import { Link } from 'react-router-dom';
+import { Avatar, Box, Typography } from '@mui/joy';
 import { Employee } from '../../types/employee';
+import LinkCard from '../common/LinkCard';
 
 interface Props {
   employee: Employee
@@ -8,21 +8,7 @@ interface Props {
 
 function StaffPreview({ employee }: Props) {
   return (
-    // TODO: Refactor as a shared LinkCard component?
-    <Card variant='soft' component={Link} to={`/staff/${employee.id}`}
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        p: 1,
-        backgroundColor: 'background.surface',
-        ':hover': {
-          backgroundColor: 'background.level2'
-        },
-        textDecoration: 'none'
-      }}
-    >
+    <LinkCard alignItems='center' to={`/staff/${employee.id}`}>
       <Box display='flex' alignItems='center' gap={3}>
         <Avatar sx={{ width: 64, height: 64 }} />
         <Box display='flex' flexDirection='column' gap={0.3}>
@@ -34,7 +20,7 @@ function StaffPreview({ employee }: Props) {
       <Box>
         <Typography level='body-sm'>{employee.office}</Typography>
       </Box>
-    </Card>
+    </LinkCard>
   );
 }
 
