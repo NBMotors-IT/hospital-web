@@ -1,7 +1,7 @@
 import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Box, Card } from '@mui/joy';
-import Breadcrumb from '../components/common/Breadcrumb';
-import StaffPreview from '../components/staff/StaffPreview';
-import { Employee } from '../types/employee';
+import Breadcrumb from '../../components/common/Breadcrumb';
+import StaffPreview from '../../components/staff/StaffPreview';
+import { Employee } from '../../types/employee';
 
 const staff: Employee[] = [
   { id: '0', name: 'Doctor', surname: 'McDoctorface', office: 'A123', specialisation: 'Surgery', role: 'Medical Director', department: 'Surgery' },
