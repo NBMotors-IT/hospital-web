@@ -1,6 +1,7 @@
 import { Box, Button, Card, FormControl, Input, Typography, useTheme, Snackbar } from '@mui/joy';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.svg';
 
 function IndexPage() {
   const theme = useTheme();
@@ -21,7 +22,7 @@ function IndexPage() {
         }}
       >
         <Box display='flex' justifyContent='center'>
-          <img style={{ width: '50%', marginTop: '-35%', boxShadow: theme.shadow.md, borderRadius: '36px' }} src='/hospital.svg' />
+          <img style={{ width: '50%', marginTop: '-35%', boxShadow: theme.shadow.md, borderRadius: '36px' }} src={logo} />
         </Box>
 
         <Box my={2}>
