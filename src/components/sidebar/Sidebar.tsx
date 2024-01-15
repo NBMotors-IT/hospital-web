@@ -1,10 +1,13 @@
-import { Assignment, Biotech, Close, Email, Group, Home, Hotel, LocalHospital, Medication } from '@mui/icons-material';
-import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography } from '@mui/joy';
+import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Medication } from '@mui/icons-material';
+import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography, useTheme } from '@mui/joy';
 import { closeSidebar } from '../../utils';
 import DarkModeToggle from '../common/DarkModeToggle';
+import logo from '../../assets/logo.svg';
 import SidebarNavLink from './SidebarNavLink';
 
 function Sidebar() {
+  const theme = useTheme();
+
   return (
     <>
       <Sheet onClick={() => closeSidebar()}
@@ -52,8 +55,8 @@ function Sidebar() {
         }}
       >
         <Box display='flex' justifyContent='space-between'>
-          <Box display='flex' gap={1} alignItems='center'>
-            <LocalHospital />
+          <Box display='flex' gap={2} alignItems='center'>
+            <img style={{ boxShadow: theme.shadow.sm, borderRadius: '8px' }} src={logo} />
             <Typography level='title-lg'>Hospital</Typography>
           </Box>
           <Box display='flex' gap={1}>
