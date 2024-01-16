@@ -1,6 +1,7 @@
-import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Medication } from '@mui/icons-material';
+import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Logout, Medication } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography, useTheme } from '@mui/joy';
 
+import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 import { closeSidebar } from '../../utils';
 import DarkModeToggle from '../common/DarkModeToggle';
@@ -62,6 +63,16 @@ function Sidebar() {
           </Box>
           <Box display='flex' gap={1}>
             <DarkModeToggle />
+
+            <IconButton
+              variant='outlined'
+              color='neutral'
+              size='sm'
+              component={Link}
+              to='/'
+            >
+              <Logout />
+            </IconButton>
 
             <IconButton
               sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
