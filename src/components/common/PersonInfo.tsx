@@ -15,6 +15,7 @@ function PersonInfo({ firstName, lastName, children }: Props) {
   const [avatar, chips, info] = Children.toArray(children);
 
   return (
+    // TODO: Move card here!
     <>
       <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={2}>
         {avatar}
