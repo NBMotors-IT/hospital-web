@@ -6,9 +6,9 @@ interface Props {
   employee: Employee
 }
 
-function StaffPreview({ employee }: Props) {
+function EmployeePreview({ employee }: Props) {
   return (
-    <LinkCard alignItems='center' to={`/staff/${employee.id}`}>
+    <LinkCard alignItems='center' to={`/employees/${employee.id}`}>
       <Box display='flex' alignItems='center' gap={3}>
         <Avatar sx={{ width: 64, height: 64 }} />
         <Box display='flex' flexDirection='column' gap={0.3}>
@@ -24,4 +24,4 @@ function StaffPreview({ employee }: Props) {
   );
 }
 
-export default StaffPreview;
+export default EmployeePreview;

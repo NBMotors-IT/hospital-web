@@ -133,11 +133,11 @@ function Sidebar() {
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/staff'>
+            <ListItemButton component={SidebarNavLink} to='/employees'>
               <ListItemDecorator>
                 <Group />
               </ListItemDecorator>
-              <Typography level='title-sm'>Staff</Typography>
+              <Typography level='title-sm'>Employees</Typography>
             </ListItemButton>
           </ListItem>
         </List>

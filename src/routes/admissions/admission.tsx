@@ -22,7 +22,7 @@ function AdmissionPage() {
         <Grid xs={12} md={10}>
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6}>
-              <Card variant='plain' sx={{ width: '100%', height: { md: 330 }, flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
+              <Card variant='plain' sx={{ width: '100%', height: { md: 330 }, boxShadow: 'sm' }}>
                 <PatientInfo /> {/* TODO: Pass patient info props */}
               </Card>
             </Grid>
