@@ -97,20 +97,20 @@ function Sidebar() {
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/pharmacy'>
+            <ListItemButton component={SidebarNavLink} to='/pharmacy' disabled>
               <ListItemDecorator>
                 <Medication />
               </ListItemDecorator>
-              <Typography level='title-sm'>Pharmacy</Typography>
+              <Typography color='neutral' level='title-sm'>Pharmacy</Typography>
             </ListItemButton>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/documents'>
+            <ListItemButton component={SidebarNavLink} to='/documents' disabled>
               <ListItemDecorator>
                 <Assignment />
               </ListItemDecorator>
-              <Typography level='title-sm'>Documents</Typography>
+              <Typography color='neutral' level='title-sm'>Documents</Typography>
             </ListItemButton>
           </ListItem>
 
