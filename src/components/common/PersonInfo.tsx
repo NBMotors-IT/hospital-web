@@ -15,8 +15,7 @@ function PersonInfo({ firstName, lastName, children }: Props) {
   const [avatar, chips, info] = Children.toArray(children);
 
   return (
-    // TODO: Move card here!
-    <>
+    <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', md: 'row' } }}>
       <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' my={3} mx={2}>
         {avatar}
         <Typography level='title-lg' my={2}>{firstName} {lastName}</Typography>
@@ -32,7 +31,7 @@ function PersonInfo({ firstName, lastName, children }: Props) {
       <Box display='flex' flexDirection='column' overflow='auto' flexGrow={1} gap={2}>
         {info}
       </Box>
-    </>
+    </Box>
   );
 }
 

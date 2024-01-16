@@ -28,7 +28,7 @@ function StaffInfoPage() {
     <>
       <Breadcrumb links={linksMap} current={`${employee.name} ${employee.surname}`} />
 
-      <Card variant='plain' sx={{ width: '100%', flexDirection: { xs: 'column', md: 'row' }, boxShadow: 'sm' }}>
+      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
         <EmployeeInfo employee={employee} />
       </Card>
     </>
