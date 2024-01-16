@@ -146,7 +146,7 @@ function Sidebar() {
         <Divider />
         <Box display='flex' justifyContent='space-between'>
           <Typography level='body-xs'>Emergency Room Module</Typography>
-          <Typography level='body-xs'>v0.0.1</Typography>
+          <Typography level='body-xs'>ver. {import.meta.env.VITE_APP_VERSION}</Typography>
         </Box>
       </Sheet>
     </>
