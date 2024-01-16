@@ -1,9 +1,9 @@
 import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Box, Card } from '@mui/joy';
 import Breadcrumb from '../../components/common/Breadcrumb';
-import StaffPreview from '../../components/staff/StaffPreview';
+import EmployeePreview from '../../components/employees/EmployeePreview';
 import { Employee } from '../../types/employee';
 
-const staff: Employee[] = [
+const employees: Employee[] = [
   { id: '0', name: 'Doctor', surname: 'McDoctorface', office: 'A123', specialisation: 'Surgeon', role: 'Medical Director', department: 'Surgery' },
   { id: '1', name: 'John', surname: 'Cutter', office: 'A21', specialisation: 'Surgeon', role: 'Doctor', department: 'Surgery' },
   { id: '2', name: 'Michael', surname: 'Brown', office: 'B10', specialisation: 'Neurosurgeon', role: 'Medical Director', department: 'Neurology' },
@@ -13,25 +13,25 @@ const staff: Employee[] = [
   { id: '6', name: 'Olivia', surname: 'Taylor', office: 'A900', specialisation: 'Surgeon', role: 'Doctor', department: 'Surgery' }
 ];
 
-function StaffListPage() {
+function EmployeesListPage() {
   // @ts-expect-error Object.groupBy nie obslugiwane przez czesc przegladarek, ale jest git
-  const staffGrouped = Object.groupBy(staff, ({ department }) => department);
+  const employeesGrouped = Object.groupBy(employees, ({ department }) => department);
 
   return (
     <>
-      <Breadcrumb current='Staff' />
+      <Breadcrumb current='Employees' />
 
       <Card>
         <Box display='flex' flexDirection='column' gap={1}>
           <AccordionGroup disableDivider size='lg'>
-            {Object.entries<Employee[]>(staffGrouped).map(([department, staff]) => (
+            {Object.entries<Employee[]>(employeesGrouped).map(([department, employees]) => (
               <Accordion key={department}>
                 <AccordionSummary>
-                  {department} ({staff.length})
+                  {department} ({employees.length})
                 </AccordionSummary>
                 <AccordionDetails>
-                  {staff.map((employee) => (
-                    <StaffPreview key={employee.id} employee={employee} />
+                  {employees.map((employee) => (
+                    <EmployeePreview key={employee.id} employee={employee} />
                   ))}
                 </AccordionDetails>
               </Accordion>
@@ -43,4 +43,4 @@ function StaffListPage() {
   );
 }
 
-export default StaffListPage;
+export default EmployeesListPage;

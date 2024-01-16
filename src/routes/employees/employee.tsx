@@ -1,7 +1,7 @@
 import { Card } from '@mui/joy';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Employee } from '../../types/employee';
-import EmployeeInfo from '../../components/staff/EmployeeInfo';
+import EmployeeInfo from '../../components/employees/EmployeeInfo';
 
 const employee: Employee = {
   id: '4',
@@ -20,10 +20,10 @@ const employee: Employee = {
 };
 
 const linksMap = new Map<string, string>([
-  ['/staff', 'Staff']
+  ['/employees', 'Employees']
 ]);
 
-function StaffInfoPage() {
+function EmployeeInfoPage() {
   return (
     <>
       <Breadcrumb links={linksMap} current={`${employee.name} ${employee.surname}`} />
@@ -35,4 +35,4 @@ function StaffInfoPage() {
   );
 }
 
-export default StaffInfoPage;
+export default EmployeeInfoPage;
