@@ -1,9 +1,10 @@
+import { Create } from '@mui/icons-material';
 import { Box, Button, Card } from '@mui/joy';
 import { Link } from 'react-router-dom';
-import { Create } from '@mui/icons-material';
-import { Message } from '../../types/message';
-import MessagePreview from '../../components/messages/MessagePreview';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
+import MessagePreview from '../../components/messages/MessagePreview';
+import { Message } from '../../types/message';
 
 const doctor = 'Doctor McDoctorface';
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo, diam eget commodo aliquam, dolor tortor interdum metus, eu iaculis ligula nisl non massa. Nulla ut pretium turpis. Morbi ultrices urna sit amet mi volutpat vestibulum. Proin quis enim mauris. Praesent finibus dictum mattis.';

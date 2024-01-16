@@ -1,15 +1,16 @@
+import { useTheme } from '@mui/joy';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Bar } from 'react-chartjs-2';
-import { useTheme } from '@mui/joy';
+
 import { shortTimeFormat } from '../../utils';
 
 ChartJS.register(

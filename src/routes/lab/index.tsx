@@ -1,5 +1,6 @@
 import { Lock, Troubleshoot } from '@mui/icons-material';
 import { Grid } from '@mui/joy';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
 import LabModuleCard from '../../components/lab/LabModuleCard';
 

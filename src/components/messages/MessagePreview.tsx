@@ -1,5 +1,6 @@
 import { Avatar, Badge, Box, Typography, useTheme } from '@mui/joy';
 import { useMediaQuery } from '@mui/material';
+
 import { Message } from '../../types/message';
 import { shortTimeFormat, truncateString } from '../../utils';
 import LinkCard from '../common/LinkCard';

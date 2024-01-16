@@ -1,12 +1,12 @@
+import { useTheme } from '@mui/joy';
 import {
-  Chart as ChartJS,
   ArcElement,
-  Tooltip,
+  Chart as ChartJS,
   Legend,
+  Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Doughnut } from 'react-chartjs-2';
-import { useTheme } from '@mui/joy';
 
 ChartJS.register(
   ArcElement,

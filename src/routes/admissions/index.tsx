@@ -1,7 +1,8 @@
 import { Box, Card } from '@mui/joy';
+
+import AdmissionPreview from '../../components/admission/AdmissionPreview';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
-import AdmissionPreview from '../../components/admission/AdmissionPreview';
 
 const admissions: Admission[] = [
   { id: '0', name: 'John Doe', status: 'admitted', datetime: new Date() },

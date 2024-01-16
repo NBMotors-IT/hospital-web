@@ -1,4 +1,5 @@
 import { Avatar, Box, Typography } from '@mui/joy';
+
 import { Employee } from '../../types/employee';
 import LinkCard from '../common/LinkCard';
 

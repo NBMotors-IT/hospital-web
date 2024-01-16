@@ -1,7 +1,8 @@
 import { Card } from '@mui/joy';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
-import { Employee } from '../../types/employee';
 import EmployeeInfo from '../../components/employees/EmployeeInfo';
+import { Employee } from '../../types/employee';
 
 const employee: Employee = {
   id: '4',

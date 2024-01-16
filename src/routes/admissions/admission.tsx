@@ -1,5 +1,6 @@
 import { Box, Button, Card, Divider, FormControl, FormLabel, Grid, Input, Textarea, Typography } from '@mui/joy';
 import { useParams } from 'react-router-dom';
+
 import DocumentsTable from '../../components/admission/DocumentsTable';
 import PatientInfo from '../../components/admission/PatientInfo';
 import PrescriptionsTable from '../../components/admission/PrescriptionsTable';

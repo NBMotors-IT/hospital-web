@@ -1,5 +1,5 @@
 import { KeyboardArrowRight } from '@mui/icons-material';
-import { Breadcrumbs, Typography, Link as JoyLink } from '@mui/joy';
+import { Breadcrumbs, Link as JoyLink, Typography } from '@mui/joy';
 import { Link } from 'react-router-dom';
 
 interface Props {

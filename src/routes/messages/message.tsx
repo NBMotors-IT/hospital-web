@@ -1,8 +1,9 @@
+import { Delete, Reply } from '@mui/icons-material';
 import { Avatar, Box, Button, Card, Typography } from '@mui/joy';
 import { Link } from 'react-router-dom';
-import { Delete, Reply } from '@mui/icons-material';
-import { Message } from '../../types/message';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
+import { Message } from '../../types/message';
 
 const message: Message = {
   id: '1',

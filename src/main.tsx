@@ -5,19 +5,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App.tsx';
 
-import IndexPage from './routes/index.tsx';
-import DashboardPage from './routes/dashboard.tsx';
 import LoggedInLayout from './layouts/LoggedInLayout.tsx';
 import AdmissionPage from './routes/admissions/admission.tsx';
-import NotFoundPage from './routes/special/notfound.tsx';
 import AdmissionsIndexPage from './routes/admissions/index.tsx';
+import DashboardPage from './routes/dashboard.tsx';
+import EmployeeInfoPage from './routes/employees/employee.tsx';
+import EmployeesListPage from './routes/employees/index.tsx';
+import IndexPage from './routes/index.tsx';
+import AIDiagnosticsPage from './routes/lab/diagnostics.tsx';
+import LabPage from './routes/lab/index.tsx';
 import MessagesIndexPage from './routes/messages/index.tsx';
 import MessagePage from './routes/messages/message.tsx';
 import MessageCreatePage from './routes/messages/new.tsx';
-import LabPage from './routes/lab/index.tsx';
-import AIDiagnosticsPage from './routes/lab/diagnostics.tsx';
-import EmployeesListPage from './routes/employees/index.tsx';
-import EmployeeInfoPage from './routes/employees/employee.tsx';
+import NotFoundPage from './routes/special/notfound.tsx';
 
 // eslint-disable-next-line unicorn/prefer-query-selector
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -29,10 +29,13 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
           {/* Routes with header & side-menu layout */}
           <Route element={<LoggedInLayout />}>
-            <Route path='dashboard' element={<DashboardPage />} />
-
             <Route path='admissions/:admissionId' element={<AdmissionPage />} />
             <Route path='admissions' element={<AdmissionsIndexPage />} />
+
+            <Route path='dashboard' element={<DashboardPage />} />
+
+            <Route path='employees/:employeeId' element={<EmployeeInfoPage />} />
+            <Route path='employees' element={<EmployeesListPage />} />
 
             <Route path='lab/diagnostics' element={<AIDiagnosticsPage />} />
             <Route path='lab' element={<LabPage />} />
@@ -40,9 +43,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='messages/new' element={<MessageCreatePage />} />
             <Route path='messages/:messageId' element={<MessagePage />} />
             <Route path='messages' element={<MessagesIndexPage />} />
-
-            <Route path='employees/:employeeId' element={<EmployeeInfoPage />} />
-            <Route path='employees' element={<EmployeesListPage />} />
           </Route>
 
           {/* 404 Not Found */}

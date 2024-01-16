@@ -1,8 +1,9 @@
 import { Bloodtype, Height, Scale } from '@mui/icons-material';
 import { Box, Chip, FormControl, FormLabel, Input } from '@mui/joy';
+
 import PersonInfo from '../common/PersonInfo';
-import PatientStatusChip from './PatientStatusChip';
 import PatientAvatar from './PatientAvatar';
+import PatientStatusChip from './PatientStatusChip';
 
 function PatientInfo() {
   return (

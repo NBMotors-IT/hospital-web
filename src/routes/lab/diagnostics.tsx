@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/joy';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
 
 const linksMap = new Map<string, string>([

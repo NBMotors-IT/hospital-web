@@ -1,6 +1,7 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
 import { ColorPaletteProp } from '@mui/joy';
+
 import { AdmissionStatus } from './types/admissionStatus';
 
 // https://github.com/mui/material-ui/blob/master/docs/data/joy/getting-started/templates/order-dashboard/utils.ts

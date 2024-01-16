@@ -1,8 +1,9 @@
 import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Medication } from '@mui/icons-material';
 import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography, useTheme } from '@mui/joy';
+
+import logo from '../../assets/logo.svg';
 import { closeSidebar } from '../../utils';
 import DarkModeToggle from '../common/DarkModeToggle';
-import logo from '../../assets/logo.svg';
 import SidebarNavLink from './SidebarNavLink';
 
 function Sidebar() {

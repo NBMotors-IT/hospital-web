@@ -1,7 +1,8 @@
 import { SensorDoor } from '@mui/icons-material';
 import { Avatar, Box, Chip, FormControl, FormLabel, Input } from '@mui/joy';
-import PersonInfo from '../common/PersonInfo';
+
 import { Employee } from '../../types/employee';
+import PersonInfo from '../common/PersonInfo';
 
 interface Props {
   employee: Employee

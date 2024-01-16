@@ -1,6 +1,7 @@
+import { Send } from '@mui/icons-material';
 import { Box, Button, Card, FormControl, Input, Textarea } from '@mui/joy';
 import { Link } from 'react-router-dom';
-import { Send } from '@mui/icons-material';
+
 import Breadcrumb from '../../components/common/Breadcrumb';
 
 const linksMap = new Map<string, string>([

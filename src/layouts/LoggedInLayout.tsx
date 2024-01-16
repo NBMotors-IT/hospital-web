@@ -1,6 +1,7 @@
+import { Menu } from '@mui/icons-material';
 import { Box, IconButton, Sheet } from '@mui/joy';
 import { Outlet } from 'react-router-dom';
-import { Menu } from '@mui/icons-material';
+
 import Sidebar from '../components/sidebar/Sidebar';
 import { toggleSidebar } from '../utils';
 

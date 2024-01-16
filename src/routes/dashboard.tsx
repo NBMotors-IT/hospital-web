@@ -1,8 +1,9 @@
 import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
 import { Card, Grid, Typography } from '@mui/joy';
-import CounterCard from '../components/dashboard/CounterCard';
+
 import AdmissionDischargeChart from '../components/dashboard/AdmissionDischargeChart';
 import BedOccupancyChart from '../components/dashboard/BedOccupancyChart';
+import CounterCard from '../components/dashboard/CounterCard';
 
 function DashboardPage() {
   return (

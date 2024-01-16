@@ -1,6 +1,7 @@
-import { Box, Button, Card, FormControl, Input, Typography, useTheme, Snackbar } from '@mui/joy';
+import { Box, Button, Card, FormControl, Input, Snackbar, Typography, useTheme } from '@mui/joy';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import logo from '../assets/logo.svg';
 
 function IndexPage() {

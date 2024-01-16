@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/joy';
-import { shortTimeFormat } from '../../utils';
+
 import { Admission } from '../../types/admission';
+import { shortTimeFormat } from '../../utils';
 import LinkCard from '../common/LinkCard';
 import PatientAvatar from './PatientAvatar';
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavLink as NavLinkBase, To } from 'react-router-dom';
+
 import { closeSidebar } from '../../utils';
 
 interface Props {
