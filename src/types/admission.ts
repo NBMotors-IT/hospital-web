@@ -1,8 +1,15 @@
 import { AdmissionStatus } from './admissionStatus';
+import { Employee } from './employee';
+import { Patient } from './patient';
+import { Referral } from './referral';
 
 export interface Admission {
   id: string,
-  name: string,
+  employee: Employee,
+  patient: Patient
   status: AdmissionStatus,
-  datetime: Date
+  admissionDate: Date,
+  diagnosis?: string,
+  historyOfIllness?: string,
+  referrals?: Referral[]
 }

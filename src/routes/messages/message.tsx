@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Message } from '../../types/message';
+import { Employee } from '../../types/employee';
+
+const recipient: Employee = { id: '1', name: 'John', surname: 'Cutter', office: 'A21', specialisation: 'Surgeon', role: 'Doctor', department: 'Surgery' };
+const doctor: Employee = { id: '0', name: 'Doctor', surname: 'McDoctorface', office: 'A123', specialisation: 'Surgeon', role: 'Medical Director', department: 'Surgery' };
+
 
 const message: Message = {
   id: '1',
-  from: 'Doctor McDoctorface',
+  from: doctor,
+  to: recipient,
   title: 'Hello',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo, diam eget commodo aliquam, dolor tortor interdum metus, eu iaculis ligula nisl non massa. Nulla ut pretium turpis. Morbi ultrices urna sit amet mi volutpat vestibulum. Proin quis enim mauris. Praesent finibus dictum mattis.',
   sentDate: new Date('2023-02-10T06:00'),
@@ -34,7 +40,7 @@ function MessagePage() {
         <Box display='flex' alignItems='center' gap={3}>
           <Avatar sx={{ width: 64, height: 64 }} />
           <Box display='flex' flexDirection='column' gap={0.3}>
-            <Typography fontWeight='600'>{message.from}</Typography>
+            <Typography fontWeight='600'>{message.from.name} {message.from.surname}</Typography>
             <Typography level='body-sm'>{message.sentDate.toLocaleString()}</Typography>
           </Box>
         </Box>

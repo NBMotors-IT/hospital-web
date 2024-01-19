@@ -1,3 +1,5 @@
+import { Admission } from './admission';
+
 export interface Employee {
   id: string,
   name: string,
@@ -7,9 +9,10 @@ export interface Employee {
   role: string,
   department: string,
   dateOfBirth?: Date,
-  pzw?: string,
-  phone?: string,
+  pwzNumber?: string,
+  phoneNumber?: string,
   email?: string,
   address?: string,
   postcode?: string
+  admissions?: Admission[]
 }

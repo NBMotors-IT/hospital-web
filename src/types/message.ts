@@ -1,6 +1,9 @@
+import { Employee } from './employee';
+
 export interface Message {
   id: string,
-  from: string,
+  from: Employee,
+  to: Employee,
   title: string,
   text: string,
   sentDate: Date,

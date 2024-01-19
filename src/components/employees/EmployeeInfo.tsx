@@ -26,7 +26,7 @@ function EmployeeInfo({ employee }: Props) {
       <PersonInfo.Info>
         <FormControl>
           <FormLabel>Phone</FormLabel>
-          <Input readOnly variant='soft' value={employee.phone} />
+          <Input readOnly variant='soft' value={employee.phoneNumber} />
         </FormControl>
 
         <FormControl>
@@ -35,8 +35,8 @@ function EmployeeInfo({ employee }: Props) {
         </FormControl>
 
         <FormControl>
-          <FormLabel>PZW</FormLabel>
-          <Input readOnly variant='soft' value={employee.pzw} />
+          <FormLabel>PWZ</FormLabel>
+          <Input readOnly variant='soft' value={employee.pwzNumber} />
         </FormControl>
 
         <FormControl>

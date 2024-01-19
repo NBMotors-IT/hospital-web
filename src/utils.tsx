@@ -1,8 +1,4 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { Favorite, Hotel, HourglassBottom } from '@mui/icons-material';
-import { ColorPaletteProp } from '@mui/joy';
-
-import { AdmissionStatus } from './types/admissionStatus';
 
 // https://github.com/mui/material-ui/blob/master/docs/data/joy/getting-started/templates/order-dashboard/utils.ts
 export const openSidebar = () => {
@@ -30,31 +26,6 @@ export const toggleSidebar = () => {
       openSidebar();
     }
   }
-};
-
-export const admissionColorFromStatus = (status: AdmissionStatus) => {
-  let element: React.ReactNode;
-  let color: ColorPaletteProp;
-
-  switch (status) {
-    case 'admitted': {
-      element = <Hotel fontSize='inherit' />;
-      color = 'primary';
-      break;
-    }
-    case 'waiting': {
-      element = <HourglassBottom fontSize='inherit' />;
-      color = 'warning';
-      break;
-    }
-    case 'discharged': {
-      element = <Favorite fontSize='inherit' />;
-      color = 'success';
-      break;
-    }
-  }
-
-  return { element, color };
 };
 
 export const truncateString = (str: string, length: number) => {

@@ -24,7 +24,7 @@ function MessagePreview({ message }: Props) {
           <Avatar sx={{ width: 64, height: 64 }} />
         </Badge>
         <Box display='flex' flexDirection='column' gap={0.3}>
-          <Typography fontWeight='600'>{message.from}</Typography>
+          <Typography fontWeight='600'>{message.from.name} {message.from.surname}</Typography>
           <Typography level={message.read ? 'body-sm' : 'title-sm'}>{message.title}</Typography>
           <Typography level='body-sm'>{truncateString(message.text, messageLengthLimit)}</Typography>
         </Box>

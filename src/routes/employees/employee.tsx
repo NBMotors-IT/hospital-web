@@ -13,8 +13,8 @@ const employee: Employee = {
   role: 'Medical Director',
   department: 'Orthopedics',
   dateOfBirth: new Date('1959-12-31'),
-  pzw: 'nie wiem co to jest...',
-  phone: '123 456 789',
+  pwzNumber: '1234567A',
+  phoneNumber: '123 456 789',
   email: 's.connor@wintertoad.xyz',
   address: '5542 Eileen Ave, Windsor Hills, Los Angeles',
   postcode: 'CA 90043'
