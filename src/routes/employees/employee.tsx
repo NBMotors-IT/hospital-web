@@ -1,30 +1,37 @@
 import { Card } from '@mui/joy';
 
+import { useParams } from 'react-router-dom';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import EmployeeInfo from '../../components/employees/EmployeeInfo';
+import { useEmployee } from '../../hooks/employee';
 import { Employee } from '../../types/employee';
-
-const employee: Employee = {
-  id: '4',
-  name: 'Sarah',
-  surname: 'Connor',
-  office: 'C75',
-  specialisation: 'Orthopedist',
-  role: 'Medical Director',
-  department: 'Orthopedics',
-  dateOfBirth: new Date('1959-12-31'),
-  pwzNumber: '1234567A',
-  phoneNumber: '123 456 789',
-  email: 's.connor@wintertoad.xyz',
-  address: '5542 Eileen Ave, Windsor Hills, Los Angeles',
-  postcode: 'CA 90043'
-};
 
 const linksMap = new Map<string, string>([
   ['/employees', 'Employees']
 ]);
 
 function EmployeeInfoPage() {
+  const params = useParams();
+  const { data, error, isLoading } = useEmployee(params.employeeId as string);
+
+  if (isLoading) {
+    return (
+      <>
+        TODO: Loading animation here...
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        TODO: Error message here...
+      </>
+    );
+  }
+
+  const employee = data as Employee;
+
   return (
     <>
       <Breadcrumb links={linksMap} current={`${employee.name} ${employee.surname}`} />

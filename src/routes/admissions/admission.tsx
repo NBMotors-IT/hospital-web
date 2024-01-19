@@ -7,54 +7,34 @@ import PrescriptionsTable from '../../components/admission/PrescriptionsTable';
 import PrevAdmissionsTable from '../../components/admission/PrevAdmissionsTable';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
+import { useAdmission } from '../../hooks/admission';
 import { AdmissionStatus } from '../../types/admissionStatus';
-import { Employee } from '../../types/employee';
-import { Sex } from '../../types/sex';
-import { BloodType } from '../../types/bloodType';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
 ]);
 
-const doctor: Employee = {
-  id: '0',
-  name: 'Doctor',
-  surname: 'McDoctorface',
-  office: 'A123',
-  specialisation: 'Surgeon',
-  role: 'Medical Director',
-  department: 'Surgery'
-};
-
-const admission: Admission = { 
-  id: '0',
-  employee: doctor,
-  patient: {
-    id: '0',
-    name: 'John',
-    surname: 'Smith',
-    sex: Sex.Male,
-    dateOfBirth: new Date('1990-12-01'),
-    address: '42 Street',
-    postCode: '01-234',
-    PESEL: '12345678900',
-    bloodType: BloodType.ABRhPlus,
-    weight: 70,
-    height: 180,
-    nationality: 'polish',
-    phoneNumber: '123456789',
-    allergies: 'None',
-    emergencyContact: '987654321',
-    email: 'john.smith@mail.example'
-  },
-  status: AdmissionStatus.Admitted,
-  admissionDate: new Date(),
-  diagnosis: 'Lorem ipsum...',
-  historyOfIllness: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-};
-
 function AdmissionPage() {
   const params = useParams();
+  const { data, error, isLoading } = useAdmission(params.admissionId as string);
+
+  if (isLoading) {
+    return (
+      <>
+        TODO: Loading animation here...
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        TODO: Error message here...
+      </>
+    );
+  }
+
+  const admission = data as Admission;
 
   return (
     <>
@@ -80,7 +60,7 @@ function AdmissionPage() {
                   <FormLabel>History</FormLabel>
                   <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' value={admission.historyOfIllness} />
                 </FormControl>
-                <Button size='lg'>Save</Button>
+                <Button size='lg' disabled={admission.status == AdmissionStatus.Discharged}>Save</Button>
               </Card>
             </Grid>
 
@@ -120,14 +100,14 @@ function AdmissionPage() {
         <Grid xs={12} md={2}>
           <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm', justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
-              <Button variant='soft'>Write a prescription</Button>
-              <Button variant='soft'>Write a referral</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a prescription</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>
               <Divider />
-              <Button variant='soft'>Add documents</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Add documents</Button>
             </Box>
             <Box display='flex' flexDirection='column' gap={1}>
               <Divider />
-              <Button color='success'>Discharge</Button>
+              <Button color='success' disabled={admission.status == AdmissionStatus.Discharged}>Discharge</Button>
             </Box>
           </Card>
         </Grid>
