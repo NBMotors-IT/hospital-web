@@ -1,8 +1,7 @@
 import { Avatar, Badge } from '@mui/joy';
 import * as React from 'react';
 
-import { AdmissionStatus } from '../../types/admissionStatus';
-import { admissionColorFromStatus } from '../../utils';
+import { AdmissionStatus, AdmissionStatusUtil } from '../../types/admissionStatus';
 
 interface Props {
   status: AdmissionStatus,
@@ -15,7 +14,7 @@ interface AvatarBadgeProps {
 }
 
 function PatientAvatarBadge({ status, children }: AvatarBadgeProps) {
-  const { element, color } = admissionColorFromStatus(status);
+  const { element, color } = AdmissionStatusUtil.toIconAndColor(status);
 
   return (
     <Badge

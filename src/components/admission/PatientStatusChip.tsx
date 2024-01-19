@@ -1,7 +1,6 @@
 import { Chip } from '@mui/joy';
 
-import { AdmissionStatus } from '../../types/admissionStatus';
-import { admissionColorFromStatus } from '../../utils';
+import { AdmissionStatus, AdmissionStatusUtil } from '../../types/admissionStatus';
 
 interface Props {
   size?: 'sm' | 'md' | 'lg',
@@ -9,9 +8,9 @@ interface Props {
 }
 
 function PatientStatusChip({ size = 'lg', status } : Props) {
-  const { element, color } = admissionColorFromStatus(status);
+  const { element, color } = AdmissionStatusUtil.toIconAndColor(status);
 
-  return <Chip variant='solid' color={color} size={size} startDecorator={element}>{status.charAt(0).toUpperCase() + status.slice(1)}</Chip>;
+  return <Chip variant='solid' color={color} size={size} startDecorator={element}>{AdmissionStatusUtil.toString(status)}</Chip>;
 }
 
 export default PatientStatusChip;

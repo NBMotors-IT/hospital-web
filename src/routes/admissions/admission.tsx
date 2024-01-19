@@ -6,6 +6,9 @@ import PatientInfo from '../../components/admission/PatientInfo';
 import PrescriptionsTable from '../../components/admission/PrescriptionsTable';
 import PrevAdmissionsTable from '../../components/admission/PrevAdmissionsTable';
 import Breadcrumb from '../../components/common/Breadcrumb';
+import { Admission } from '../../types/admission';
+import { useAdmission } from '../../hooks/admission';
+import { AdmissionStatus } from '../../types/admissionStatus';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -13,6 +16,25 @@ const linksMap = new Map<string, string>([
 
 function AdmissionPage() {
   const params = useParams();
+  const { data, error, isLoading } = useAdmission(params.admissionId as string);
+
+  if (isLoading) {
+    return (
+      <>
+        TODO: Loading animation here...
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        TODO: Error message here...
+      </>
+    );
+  }
+
+  const admission = data as Admission;
 
   return (
     <>
@@ -24,7 +46,7 @@ function AdmissionPage() {
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6}>
               <Card variant='plain' sx={{ width: '100%', height: { md: 330 }, boxShadow: 'sm' }}>
-                <PatientInfo /> {/* TODO: Pass patient info props */}
+                <PatientInfo patient={admission.patient} status={admission.status} />
               </Card>
             </Grid>
 
@@ -32,13 +54,13 @@ function AdmissionPage() {
               <Card variant='plain' sx={{ minHeight: { xs: 0, md: 330 }, boxShadow: 'sm' }}>
                 <FormControl>
                   <FormLabel>Diagnosis</FormLabel>
-                  <Input defaultValue='Some diagnosis here...' />
+                  <Input defaultValue='Some diagnosis here...' value={admission.diagnosis} />
                 </FormControl>
                 <FormControl>
                   <FormLabel>History</FormLabel>
-                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' />
+                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' value={admission.historyOfIllness} />
                 </FormControl>
-                <Button size='lg'>Save</Button>
+                <Button size='lg' disabled={admission.status == AdmissionStatus.Discharged}>Save</Button>
               </Card>
             </Grid>
 
@@ -78,14 +100,14 @@ function AdmissionPage() {
         <Grid xs={12} md={2}>
           <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm', justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
-              <Button variant='soft'>Write a prescription</Button>
-              <Button variant='soft'>Write a referral</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a prescription</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>
               <Divider />
-              <Button variant='soft'>Add documents</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Add documents</Button>
             </Box>
             <Box display='flex' flexDirection='column' gap={1}>
               <Divider />
-              <Button color='success'>Discharge</Button>
+              <Button color='success' disabled={admission.status == AdmissionStatus.Discharged}>Discharge</Button>
             </Box>
           </Card>
         </Grid>

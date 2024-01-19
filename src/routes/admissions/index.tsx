@@ -3,14 +3,29 @@ import { Box, Card } from '@mui/joy';
 import AdmissionPreview from '../../components/admission/AdmissionPreview';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
-
-const admissions: Admission[] = [
-  { id: '0', name: 'John Doe', status: 'admitted', datetime: new Date() },
-  { id: '1', name: 'Jane Doe', status: 'waiting', datetime: new Date(Date.now() - 1 * (60 * 60 * 1000)) },
-  { id: '2', name: 'James Smith', status: 'discharged', datetime: new Date(Date.now() - 2 * (60 * 60 * 1000)) }
-];
+import { useAdmissions } from '../../hooks/admission';
 
 function AdmissionsIndexPage() {
+  const { data, error, isLoading } = useAdmissions();
+
+  if (isLoading) {
+    return (
+      <>
+        TODO: Loading animation here...
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        TODO: Error message here...
+      </>
+    );
+  }
+
+  const admissions = data as Admission[];
+
   return (
     <>
       <Breadcrumb current='Admissions' />
