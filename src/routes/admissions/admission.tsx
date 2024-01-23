@@ -64,12 +64,12 @@ function AdmissionPage() {
               
                 <FormControl>
                   <FormLabel>Diagnosis</FormLabel>
-                  <Input defaultValue='Some diagnosis here...' value={admission.diagnosis} />
+                  <Input readOnly={admission.status == AdmissionStatus.Discharged} defaultValue={admission.diagnosis} />
                 </FormControl>
 
                 <FormControl>
                   <FormLabel>History</FormLabel>
-                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' value={admission.historyOfIllness} />
+                  <Textarea readOnly={admission.status == AdmissionStatus.Discharged} minRows={5} maxRows={5} defaultValue={admission.historyOfIllness} />
                 </FormControl>
 
                 <Button size='lg' disabled={admission.status == AdmissionStatus.Discharged}>Save</Button>
