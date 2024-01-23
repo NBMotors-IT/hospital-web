@@ -21,7 +21,7 @@ function AdmissionPreview({ admission }: Props) {
         </Box>
       </Box>
 
-      <Box>
+      <Box position='absolute' right={12} top={12}>
         <Typography level='body-sm'>{shortTimeFormat(admission.admissionDate)}</Typography>
       </Box>
     </LinkCard>
