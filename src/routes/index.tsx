@@ -23,7 +23,7 @@ function IndexPage() {
         }}
       >
         <Box display='flex' justifyContent='center'>
-          <img style={{ width: '50%', marginTop: '-35%', boxShadow: theme.shadow.md, borderRadius: '36px' }} src={logo} />
+          <img style={{ width: '50%', marginTop: '-35%', boxShadow: theme.shadow.md, borderRadius: '30%' }} src={logo} />
         </Box>
 
         <Box my={2}>

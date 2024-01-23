@@ -58,7 +58,7 @@ function Sidebar() {
       >
         <Box display='flex' justifyContent='space-between'>
           <Box display='flex' gap={2} alignItems='center'>
-            <img style={{ boxShadow: theme.shadow.sm, borderRadius: '8px' }} src={logo} />
+            <img style={{ boxShadow: theme.shadow.sm, borderRadius: '30%' }} src={logo} />
             <Box display='flex' flexDirection='column'>
               <Typography level='title-lg'>Hospital</Typography>
               <Typography level='body-xs'>Dr Yourname Here</Typography>
