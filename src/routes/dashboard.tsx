@@ -48,11 +48,11 @@ function DashboardPage() {
           </Card>
         </Grid>
 
-        <Grid xs={12} md={12}>
+        {/* <Grid xs={12} md={12}>
           <Card variant='plain' sx={{ minHeight: 200, boxShadow: 'sm' }}>
             Some Stuff
           </Card>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );
