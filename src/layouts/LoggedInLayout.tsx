@@ -14,7 +14,7 @@ function LoggedInLayout() {
           display: { xs: 'flex', xl: 'none' },
           position: 'sticky',
           top: 0,
-          zIndex: 9000,
+          zIndex: 'popup',
           p: 2,
           borderBottom: '1px solid',
           borderColor: 'background.level1',

@@ -1,5 +1,5 @@
 import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Logout, Medication } from '@mui/icons-material';
-import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Typography, useTheme } from '@mui/joy';
+import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Tooltip, Typography, useTheme } from '@mui/joy';
 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
@@ -24,7 +24,7 @@ function Sidebar() {
             xl: 'none'
           },
           top: 0,
-          zIndex: 9998,
+          zIndex: 'popup',
           width: '100%',
           height: '100%',
           backgroundColor: 'background.backdrop',
@@ -44,7 +44,7 @@ function Sidebar() {
           },
           transition: 'transform 0.2s, width 0.2s',
           top: 0,
-          zIndex: 9999,
+          zIndex: 'modal',
           display: 'flex',
           flexDirection: 'column',
           gap: 2,
@@ -59,30 +59,39 @@ function Sidebar() {
         <Box display='flex' justifyContent='space-between'>
           <Box display='flex' gap={2} alignItems='center'>
             <img style={{ boxShadow: theme.shadow.sm, borderRadius: '8px' }} src={logo} />
-            <Typography level='title-lg'>Hospital</Typography>
+            <Box display='flex' flexDirection='column'>
+              <Typography level='title-lg'>Hospital</Typography>
+              <Typography level='body-xs'>Dr Yourname Here</Typography>
+            </Box>
           </Box>
           <Box display='flex' gap={1}>
-            <DarkModeToggle />
+            <Tooltip arrow title='Toggle dark mode'>
+              <DarkModeToggle />
+            </Tooltip>
 
-            <IconButton
-              variant='outlined'
-              color='neutral'
-              size='sm'
-              component={Link}
-              to='/'
-            >
-              <Logout />
-            </IconButton>
+            <Tooltip arrow title='Logout'>
+              <IconButton
+                variant='outlined'
+                color='neutral'
+                size='sm'
+                component={Link}
+                to='/'
+              >
+                <Logout />
+              </IconButton>
+            </Tooltip>
 
-            <IconButton
-              sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
-              onClick={() => closeSidebar()}
-              variant='outlined'
-              color='neutral'
-              size='sm'
-            >
-              <Close />
-            </IconButton>
+            <Tooltip arrow title='Close sidebar'>
+              <IconButton
+                sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
+                onClick={() => closeSidebar()}
+                variant='outlined'
+                color='neutral'
+                size='sm'
+              >
+                <Close />
+              </IconButton>
+            </Tooltip>
           </Box>
         </Box>
 

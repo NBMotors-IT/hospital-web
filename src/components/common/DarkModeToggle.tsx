@@ -1,7 +1,13 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton, useColorScheme } from '@mui/joy';
+import { forwardRef } from 'react';
 
-function DarkModeToggle() {
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [x:string]: any;
+}
+
+const DarkModeToggle = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const { mode, setMode } = useColorScheme();
 
   return (
@@ -26,11 +32,15 @@ function DarkModeToggle() {
           },
         }
       ]}
+      ref={ref}
+      {...props}
     >
       <DarkMode />
       <LightMode />
     </IconButton>
   );
-}
+});
+
+DarkModeToggle.displayName = 'DarkModeToggle';
 
 export default DarkModeToggle;
