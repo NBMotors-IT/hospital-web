@@ -8,7 +8,7 @@ import CounterCard from '../components/dashboard/CounterCard';
 function DashboardPage() {
   return (
     <>
-      <Typography color='neutral' level='h1' sx={{ mb: 2 }}>Hello, Dr Yournamehere</Typography>
+      <Typography color='neutral' level='h2' sx={{ mb: 2 }}>Hello, Dr Yourname Here</Typography>
       <Grid container spacing={2}>
         <Grid xs={12} md={3}>
           <CounterCard color='success' value={8} label='discharged'>
