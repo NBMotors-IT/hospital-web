@@ -9,6 +9,7 @@ export interface Admission {
   patient: Patient
   status: AdmissionStatus,
   admissionDate: Date,
+  dischargeDate?: Date,
   diagnosis?: string,
   historyOfIllness?: string,
   referrals?: Referral[]
