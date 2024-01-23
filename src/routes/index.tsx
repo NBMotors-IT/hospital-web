@@ -1,4 +1,4 @@
-import { Box, Button, Card, FormControl, Input, Snackbar, Typography, useTheme } from '@mui/joy';
+import { Box, Button, Card, FormControl, FormLabel, Input, Snackbar, Typography, useTheme } from '@mui/joy';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ function IndexPage() {
           display: 'flex',
           borderTop: '6px black solid',
           borderTopColor: theme.palette.primary[500],
-          // width: 400,
+          minWidth: 350,
           p: 3,
           gap: 2,
           flexDirection: 'column',
@@ -32,11 +32,13 @@ function IndexPage() {
         </Box>
 
         <FormControl>
-          <Input variant='soft' name='username' type='text' placeholder='Username' value='dryournamehere123' readOnly />
+          <FormLabel>Username</FormLabel>
+          <Input name='username' type='text' placeholder='Username' value='dryournamehere123' readOnly />
         </FormControl>
 
         <FormControl>
-          <Input variant='soft' name='password' type='password' placeholder='Password' value='admin123' readOnly />
+        <FormLabel>Password</FormLabel>
+          <Input name='password' type='password' placeholder='Password' value='admin123' readOnly />
         </FormControl>
 
         {/* No accounts for now */}
