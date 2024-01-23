@@ -45,7 +45,7 @@ function AdmissionPage() {
         <Grid xs={12} md={10}>
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6}>
-              <Card variant='plain' sx={{ width: '100%', height: { md: 330 }, boxShadow: 'sm' }}>
+              <Card variant='plain' sx={{ width: '100%', height: { md: 470 }, boxShadow: 'sm' }}>
                 <PatientInfo patient={admission.patient} status={admission.status} />
               </Card>
             </Grid>
@@ -53,13 +53,25 @@ function AdmissionPage() {
             <Grid xs={12} md={6}>
               <Card variant='plain' sx={{ minHeight: { xs: 0, md: 330 }, boxShadow: 'sm' }}>
                 <FormControl>
-                  <FormLabel>Diagnosis</FormLabel>
-                  <Input defaultValue='Some diagnosis here...' value={admission.diagnosis} />
+                  <FormLabel>Admitted on</FormLabel>
+                  <Input readOnly variant='soft' value={admission.admissionDate.toLocaleString()} />
                 </FormControl>
+
+                <FormControl>
+                  <FormLabel>Discharged on</FormLabel>
+                  <Input readOnly variant='soft' value={admission.dischargeDate ? admission.dischargeDate.toLocaleString() : 'N/A'} />
+                </FormControl>
+              
+                <FormControl>
+                  <FormLabel>Diagnosis</FormLabel>
+                  <Input readOnly={admission.status == AdmissionStatus.Discharged} defaultValue={admission.diagnosis} />
+                </FormControl>
+
                 <FormControl>
                   <FormLabel>History</FormLabel>
-                  <Textarea minRows={5} maxRows={5} defaultValue='Some notes about the patient here...' value={admission.historyOfIllness} />
+                  <Textarea readOnly={admission.status == AdmissionStatus.Discharged} minRows={5} maxRows={5} defaultValue={admission.historyOfIllness} />
                 </FormControl>
+
                 <Button size='lg' disabled={admission.status == AdmissionStatus.Discharged}>Save</Button>
               </Card>
             </Grid>

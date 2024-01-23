@@ -78,7 +78,7 @@ const history = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 const admissions: Admission[] = [
   { id: '0', employee: doctor, patient: patient0, status: AdmissionStatus.Admitted, admissionDate: new Date(), diagnosis: diagnosis, historyOfIllness: history },
   { id: '1', employee: doctor, patient: patient1, status: AdmissionStatus.Waiting, admissionDate: new Date(Date.now() - 1 * (60 * 60 * 1000)), diagnosis: diagnosis, historyOfIllness: history },
-  { id: '2', employee: doctor, patient: patient2, status: AdmissionStatus.Discharged, admissionDate: new Date(Date.now() - 2 * (60 * 60 * 1000)), diagnosis: diagnosis, historyOfIllness: history }
+  { id: '2', employee: doctor, patient: patient2, status: AdmissionStatus.Discharged, admissionDate: new Date(Date.now() - 2 * (60 * 60 * 1000)), dischargeDate: new Date(Date.now() - 1.75 * (60 * 60 * 1000)), diagnosis: diagnosis, historyOfIllness: history }
 ];
 
 export function useAdmission(id: string) {
