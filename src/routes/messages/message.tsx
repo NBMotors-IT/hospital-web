@@ -52,7 +52,8 @@ function MessagePage() {
           </Box>
         </Box>
 
-        <Box>
+        <Box display='flex' flexDirection='column' gap={1}>
+          <Typography level='title-lg'>{message.title}</Typography>
           <Typography level='body-md'>
             {message.text}
           </Typography>
