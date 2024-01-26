@@ -4,6 +4,7 @@ import AdmissionPreview from '../../components/admission/AdmissionPreview';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
 import { useAdmissions } from '../../hooks/admission';
+import AdmissionPreviewSkeleton from '../../components/admission/AdmissionPreviewSkeleton';
 
 function AdmissionsIndexPage() {
   const { data, error, isLoading } = useAdmissions();
@@ -11,7 +12,13 @@ function AdmissionsIndexPage() {
   if (isLoading) {
     return (
       <>
-        TODO: Loading animation here...
+        <Breadcrumb current='Admissions' />
+
+        <Card>
+          <Box display='flex' flexDirection='column' gap={1}>
+            <AdmissionPreviewSkeleton count={10} />
+          </Box>
+        </Card>
       </>
     );
   }

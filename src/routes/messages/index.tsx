@@ -6,6 +6,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import MessagePreview from '../../components/messages/MessagePreview';
 import { Message } from '../../types/message';
 import { useMessages } from '../../hooks/message';
+import MessagePreviewSkeleton from '../../components/messages/MessagePreviewSkeleton';
 
 function MessagesIndexPage() {
   const { data, error, isLoading } = useMessages();
@@ -13,7 +14,17 @@ function MessagesIndexPage() {
   if (isLoading) {
     return (
       <>
-        TODO: Loading animation here...
+        <Breadcrumb current='Messages' />
+
+        <Card>
+          <Box>
+            <Button disabled variant='soft' startDecorator={<Create />}>New message</Button>
+          </Box>
+
+          <Box display='flex' flexDirection='column' gap={1}>
+            <MessagePreviewSkeleton count={10} />
+          </Box>
+        </Card>
       </>
     );
   }

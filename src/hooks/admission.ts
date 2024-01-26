@@ -4,6 +4,7 @@ import { BloodType } from '../types/bloodType';
 import { Employee } from '../types/employee';
 import { Patient } from '../types/patient';
 import { Sex } from '../types/sex';
+import { useFakeFetch } from './fakeFetcher';
 
 const doctor: Employee = {
   id: '0',
@@ -83,18 +84,14 @@ const admissions: Admission[] = [
 
 export function useAdmission(id: string) {
   // TODO: Fetching from backend
-  const data = admissions.find(a => a.id == id);
-  const error = undefined;
-  const isLoading = false;
+  const { data, error, isLoading } = useFakeFetch<Admission>(admissions.find(a => a.id == id));
 
   return { data, error, isLoading };
 }
 
 export function useAdmissions() {
   // TODO: Fetching from backend
-  const data = admissions;
-  const error = undefined;
-  const isLoading = false;
+  const { data, error, isLoading } = useFakeFetch<Admission[]>(admissions);
 
   return { data, error, isLoading };
 }

@@ -1,5 +1,6 @@
 import { Employee } from '../types/employee';
 import { Message } from '../types/message';
+import { useFakeFetch } from './fakeFetcher';
 
 const recipient: Employee = { id: '1', name: 'John', surname: 'Cutter', office: 'A21', specialisation: 'Surgeon', role: 'Doctor', department: 'Surgery' };
 const doctor: Employee = { id: '0', name: 'Doctor', surname: 'McDoctorface', office: 'A123', specialisation: 'Surgeon', role: 'Medical Director', department: 'Surgery' };
@@ -16,18 +17,14 @@ const messages: Message[] = [
 
 export function useMessage(id: string) {
   // TODO: Fetching from backend
-  const data = messages.find(m => m.id == id);
-  const error = undefined;
-  const isLoading = false;
+  const { data, error, isLoading } = useFakeFetch<Message>(messages.find(m => m.id == id));
 
   return { data, error, isLoading };
 }
 
 export function useMessages() {
   // TODO: Fetching from backend
-  const data = messages;
-  const error = undefined;
-  const isLoading = false;
+  const { data, error, isLoading } = useFakeFetch<Message[]>(messages);
 
   return { data, error, isLoading };
 }

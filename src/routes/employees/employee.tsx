@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import EmployeeInfo from '../../components/employees/EmployeeInfo';
 import { useEmployee } from '../../hooks/employee';
 import { Employee } from '../../types/employee';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 const linksMap = new Map<string, string>([
   ['/employees', 'Employees']
@@ -16,9 +17,7 @@ function EmployeeInfoPage() {
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 
