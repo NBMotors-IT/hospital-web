@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Message } from '../../types/message';
 import { useMessage } from '../../hooks/message';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 const linksMap = new Map<string, string>([
   ['/messages', 'Messages']
@@ -16,9 +17,7 @@ function MessagePage() {
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 

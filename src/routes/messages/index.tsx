@@ -6,15 +6,14 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import MessagePreview from '../../components/messages/MessagePreview';
 import { Message } from '../../types/message';
 import { useMessages } from '../../hooks/message';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 function MessagesIndexPage() {
   const { data, error, isLoading } = useMessages();
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 

@@ -4,15 +4,14 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import EmployeePreview from '../../components/employees/EmployeePreview';
 import { Employee } from '../../types/employee';
 import { useEmployees } from '../../hooks/employee';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 function EmployeesListPage() {
   const { data, error, isLoading } = useEmployees();
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 

@@ -9,6 +9,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
 import { useAdmission } from '../../hooks/admission';
 import { AdmissionStatus } from '../../types/admissionStatus';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -20,9 +21,7 @@ function AdmissionPage() {
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 
