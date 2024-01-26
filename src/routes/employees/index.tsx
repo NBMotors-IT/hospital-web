@@ -1,17 +1,24 @@
-import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Box, Card } from '@mui/joy';
+import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Box, Card, Skeleton } from '@mui/joy';
 
 import Breadcrumb from '../../components/common/Breadcrumb';
 import EmployeePreview from '../../components/employees/EmployeePreview';
 import { Employee } from '../../types/employee';
 import { useEmployees } from '../../hooks/employee';
-import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 function EmployeesListPage() {
   const { data, error, isLoading } = useEmployees();
 
   if (isLoading) {
     return (
-      <LoadingIndicator />
+      <>
+        <Breadcrumb current='Employees' />
+
+        <Card>
+          <Box display='flex' flexDirection='column' gap={1} m={2}>
+          {Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} variant='text' level='h3' width={128} />,)}
+          </Box>
+        </Card>
+      </>
     );
   }
 

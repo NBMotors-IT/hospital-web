@@ -4,14 +4,22 @@ import AdmissionPreview from '../../components/admission/AdmissionPreview';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
 import { useAdmissions } from '../../hooks/admission';
-import LoadingIndicator from '../../components/common/LoadingIndicator';
+import AdmissionPreviewSkeleton from '../../components/admission/AdmissionPreviewSkeleton';
 
 function AdmissionsIndexPage() {
   const { data, error, isLoading } = useAdmissions();
 
   if (isLoading) {
     return (
-      <LoadingIndicator />
+      <>
+        <Breadcrumb current='Admissions' />
+
+        <Card>
+          <Box display='flex' flexDirection='column' gap={1}>
+            <AdmissionPreviewSkeleton count={10} />
+          </Box>
+        </Card>
+      </>
     );
   }
 
