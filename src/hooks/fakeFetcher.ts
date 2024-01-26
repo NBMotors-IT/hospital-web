@@ -10,8 +10,8 @@ export function useFakeFetch<Type>(val: unknown) {
     const fetchData = async () => {
       try {
         const fetchedData = await new Promise(resolve => {
-          // Simulate random loading delay between 500-1000ms
-          const delay = Math.floor(Math.random() * (1000 - 500 + 1) + 500);
+          // Simulate random loading delay
+          const delay = Math.floor(Math.random() * (400 - 250 + 1) + 250);
           setTimeout(() => resolve(val), delay);
         });
 
