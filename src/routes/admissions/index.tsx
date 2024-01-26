@@ -4,15 +4,14 @@ import AdmissionPreview from '../../components/admission/AdmissionPreview';
 import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
 import { useAdmissions } from '../../hooks/admission';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
 
 function AdmissionsIndexPage() {
   const { data, error, isLoading } = useAdmissions();
 
   if (isLoading) {
     return (
-      <>
-        TODO: Loading animation here...
-      </>
+      <LoadingIndicator />
     );
   }
 
