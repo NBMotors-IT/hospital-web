@@ -7,6 +7,7 @@ import MessagePreview from '../../components/messages/MessagePreview';
 import { Message } from '../../types/message';
 import { useMessages } from '../../hooks/message';
 import MessagePreviewSkeleton from '../../components/messages/MessagePreviewSkeleton';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 function MessagesIndexPage() {
   const { data, error, isLoading } = useMessages();
@@ -31,9 +32,7 @@ function MessagesIndexPage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load messages' />
     );
   }
 

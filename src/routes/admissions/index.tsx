@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import { Admission } from '../../types/admission';
 import { useAdmissions } from '../../hooks/admission';
 import AdmissionPreviewSkeleton from '../../components/admission/AdmissionPreviewSkeleton';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 function AdmissionsIndexPage() {
   const { data, error, isLoading } = useAdmissions();
@@ -25,9 +26,7 @@ function AdmissionsIndexPage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load admissions' />
     );
   }
 

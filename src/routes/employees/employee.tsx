@@ -6,6 +6,7 @@ import EmployeeInfo from '../../components/employees/EmployeeInfo';
 import { useEmployee } from '../../hooks/employee';
 import { Employee } from '../../types/employee';
 import LoadingIndicator from '../../components/common/LoadingIndicator';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 const linksMap = new Map<string, string>([
   ['/employees', 'Employees']
@@ -23,9 +24,7 @@ function EmployeeInfoPage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load employee' />
     );
   }
 
