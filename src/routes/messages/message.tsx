@@ -6,6 +6,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import { Message } from '../../types/message';
 import { useMessage } from '../../hooks/message';
 import LoadingIndicator from '../../components/common/LoadingIndicator';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 const linksMap = new Map<string, string>([
   ['/messages', 'Messages']
@@ -23,9 +24,7 @@ function MessagePage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load message' />
     );
   }
 

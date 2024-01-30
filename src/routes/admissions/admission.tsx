@@ -10,6 +10,7 @@ import { Admission } from '../../types/admission';
 import { useAdmission } from '../../hooks/admission';
 import { AdmissionStatus } from '../../types/admissionStatus';
 import LoadingIndicator from '../../components/common/LoadingIndicator';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -27,9 +28,7 @@ function AdmissionPage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load admission' />
     );
   }
 
@@ -60,7 +59,7 @@ function AdmissionPage() {
                   <FormLabel>Discharged on</FormLabel>
                   <Input readOnly variant='soft' value={admission.dischargeDate ? admission.dischargeDate.toLocaleString() : 'N/A'} />
                 </FormControl>
-              
+
                 <FormControl>
                   <FormLabel>Diagnosis</FormLabel>
                   <Input readOnly={admission.status == AdmissionStatus.Discharged} defaultValue={admission.diagnosis} />

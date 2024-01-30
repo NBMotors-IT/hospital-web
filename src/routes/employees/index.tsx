@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/common/Breadcrumb';
 import EmployeePreview from '../../components/employees/EmployeePreview';
 import { Employee } from '../../types/employee';
 import { useEmployees } from '../../hooks/employee';
+import ErrorDisplay from '../../components/common/ErrorDisplay';
 
 function EmployeesListPage() {
   const { data, error, isLoading } = useEmployees();
@@ -24,9 +25,7 @@ function EmployeesListPage() {
 
   if (error) {
     return (
-      <>
-        TODO: Error message here...
-      </>
+      <ErrorDisplay message='Could not load employees' />
     );
   }
 
