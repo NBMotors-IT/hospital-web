@@ -34,7 +34,7 @@ function MessagePage() {
     <>
       <Breadcrumb links={linksMap} current={message.title} />
 
-      <Card>
+      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
         <Box display='flex' gap={1}>
           {/* TODO: Pass recipient (and message?) */}
           <Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Reply />}>Reply</Button>

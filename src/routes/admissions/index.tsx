@@ -15,7 +15,7 @@ function AdmissionsIndexPage() {
       <>
         <Breadcrumb current='Admissions' />
 
-        <Card>
+        <Card variant='plain' sx={{ boxShadow: 'sm' }}>
           <Box display='flex' flexDirection='column' gap={1}>
             <AdmissionPreviewSkeleton count={10} />
           </Box>
@@ -36,7 +36,7 @@ function AdmissionsIndexPage() {
     <>
       <Breadcrumb current='Admissions' />
 
-      <Card>
+      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
         <Box display='flex' flexDirection='column' gap={1}>
           {admissions.map((admission) => (
             <AdmissionPreview key={admission.id} admission={admission} />

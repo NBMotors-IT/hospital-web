@@ -14,7 +14,7 @@ function EmployeesListPage() {
       <>
         <Breadcrumb current='Employees' />
 
-        <Card>
+        <Card variant='plain' sx={{ boxShadow: 'sm' }}>
           <Box display='flex' flexDirection='column' gap={1} m={2}>
           {Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} variant='text' level='h3' width={128} />,)}
           </Box>
@@ -36,7 +36,7 @@ function EmployeesListPage() {
     <>
       <Breadcrumb current='Employees' />
 
-      <Card>
+      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
         <Box display='flex' flexDirection='column' gap={1}>
           <AccordionGroup disableDivider size='lg'>
             {Object.entries<Employee[]>(employeesGrouped).map(([department, employees]) => (

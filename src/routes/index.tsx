@@ -24,7 +24,7 @@ function IndexPage() {
           p: 3,
           gap: 2,
           flexDirection: 'column',
-          boxShadow: 'md'
+          boxShadow: 'sm'
         }}
       >
         <Box display='flex' justifyContent='center'>
