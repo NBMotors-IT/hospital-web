@@ -41,7 +41,7 @@ function EmployeesListPage() {
           <AccordionGroup disableDivider size='lg'>
             {Object.entries<Employee[]>(employeesGrouped).map(([department, employees]) => (
               <Accordion key={department}>
-                <AccordionSummary>
+                <AccordionSummary variant='plain' color='primary'>
                   {department} ({employees.length})
                 </AccordionSummary>
                 <AccordionDetails>

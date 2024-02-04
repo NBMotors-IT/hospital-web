@@ -1,5 +1,5 @@
-import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Logout, Medication } from '@mui/icons-material';
-import { Box, Divider, IconButton, List, ListItem, ListItemButton, ListItemDecorator, Sheet, Tooltip, Typography, useTheme } from '@mui/joy';
+import { Assignment, Biotech, Close, Email, Group, Home, Hotel, Logout, Medication, Settings } from '@mui/icons-material';
+import { Box, Divider, IconButton, List, ListItem, Sheet, Tooltip, Typography, useTheme } from '@mui/joy';
 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
@@ -34,6 +34,7 @@ function Sidebar() {
 
       <Sheet
         sx={{
+          boxShadow: 'sm',
           position: {
             xs: 'fixed',
             xl: 'sticky'
@@ -71,8 +72,8 @@ function Sidebar() {
 
             <Tooltip arrow title='Logout'>
               <IconButton
-                variant='outlined'
-                color='neutral'
+                variant='soft'
+                color='primary'
                 size='sm'
                 component={Link}
                 to='/'
@@ -85,8 +86,8 @@ function Sidebar() {
               <IconButton
                 sx={{ display: { xs: 'inline-flex', xl: 'none' } }}
                 onClick={() => closeSidebar()}
-                variant='outlined'
-                color='neutral'
+                variant='soft'
+                color='primary'
                 size='sm'
               >
                 <Close />
@@ -98,68 +99,53 @@ function Sidebar() {
         <Divider />
 
         {/* Sidebar menu links */}
-        <List variant='plain' size='lg' sx={{ gap: 1 }}>
+        <List variant='plain' size='lg' sx={{ gap: 0.5 }}>
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/dashboard'>
-              <ListItemDecorator>
-                <Home />
-              </ListItemDecorator>
-              <Typography level='title-sm'>Home</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/dashboard' text='Home'>
+              <Home />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/admissions'>
-              <ListItemDecorator>
-                <Hotel />
-              </ListItemDecorator>
-              <Typography level='title-sm'>My Admissions</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/admissions' text='My Admissions'>
+              <Hotel />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/pharmacy' disabled>
-              <ListItemDecorator>
-                <Medication />
-              </ListItemDecorator>
-              <Typography color='neutral' level='title-sm'>Pharmacy</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/pharmacy' text='Pharmacy' disabled>
+              <Medication />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/documents' disabled>
-              <ListItemDecorator>
-                <Assignment />
-              </ListItemDecorator>
-              <Typography color='neutral' level='title-sm'>Documents</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/documents' text='Documents' disabled>
+              <Assignment />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/lab'>
-              <ListItemDecorator>
-                <Biotech />
-              </ListItemDecorator>
-              <Typography level='title-sm'>Lab</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/lab' text='Lab'>
+              <Biotech />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/messages'>
-              <ListItemDecorator>
-                <Email />
-              </ListItemDecorator>
-              <Typography level='title-sm'>Messages</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/messages' text='Messages'>
+              <Email />
+            </SidebarNavLink>
           </ListItem>
 
           <ListItem>
-            <ListItemButton component={SidebarNavLink} to='/employees'>
-              <ListItemDecorator>
-                <Group />
-              </ListItemDecorator>
-              <Typography level='title-sm'>Employees</Typography>
-            </ListItemButton>
+            <SidebarNavLink to='/employees' text='Employees'>
+              <Group />
+            </SidebarNavLink>
+          </ListItem>
+
+          <ListItem>
+            <SidebarNavLink to='/settings' text='Settings' disabled>
+              <Settings />
+            </SidebarNavLink>
           </ListItem>
         </List>
 
