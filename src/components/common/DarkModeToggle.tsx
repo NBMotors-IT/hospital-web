@@ -1,13 +1,15 @@
 import { DarkMode, LightMode } from '@mui/icons-material';
 import { IconButton, useColorScheme } from '@mui/joy';
+import { SxProps } from '@mui/material';
 import { forwardRef } from 'react';
 
 interface Props {
+  sx?: SxProps | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x:string]: any;
+  [x: string]: any;
 }
 
-const DarkModeToggle = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+const DarkModeToggle = forwardRef<HTMLButtonElement, Props>(({ sx, ...props }, ref) => {
   const { mode, setMode } = useColorScheme();
 
   return (
@@ -22,16 +24,15 @@ const DarkModeToggle = forwardRef<HTMLButtonElement, Props>((props, ref) => {
           setMode('light');
         }
       }}
-      sx={[
-        {
-          '& > *:first-of-type': {
-            display: mode === 'dark' ? 'none' : 'initial',
-          },
-          '& > *:last-of-type': {
-            display: mode === 'light' ? 'none' : 'initial',
-          },
-        }
-      ]}
+      sx={{
+        ...sx,
+        '& > *:first-of-type': {
+          display: mode === 'dark' ? 'none' : 'initial',
+        },
+        '& > *:last-of-type': {
+          display: mode === 'light' ? 'none' : 'initial',
+        },
+      }}
       ref={ref}
       {...props}
     >

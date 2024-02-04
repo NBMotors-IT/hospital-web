@@ -1,8 +1,9 @@
-import { Box, Button, Card, FormControl, FormLabel, Input, Snackbar, Typography, useTheme } from '@mui/joy';
+import { Box, Button, Card, FormControl, FormLabel, Input, Snackbar, Tooltip, Typography, useTheme } from '@mui/joy';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logo from '../assets/logo.svg';
+import DarkModeToggle from '../components/common/DarkModeToggle';
 
 function IndexPage() {
   const theme = useTheme();
@@ -10,6 +11,10 @@ function IndexPage() {
 
   return (
     <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' width='100%'>
+      <Tooltip arrow title='Toggle dark mode'>
+        <DarkModeToggle sx={{ position: 'absolute', top: 12, left: 12 }} />
+      </Tooltip>
+      
       <Card variant='plain'
         sx={{
           display: 'flex',
