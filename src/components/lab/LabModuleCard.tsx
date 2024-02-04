@@ -9,7 +9,7 @@ interface Props {
 
 function LabModuleCard({ to, text, children }: Props) {
   return (
-    <Card variant='plain' color='primary' component={Link} to={to}
+    <Card color='primary' component={Link} to={to}
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -17,7 +17,6 @@ function LabModuleCard({ to, text, children }: Props) {
         gap: 2,
         height: 200,
         textDecoration: 'none',
-        boxShadow: 'sm',
         backgroundColor: 'background.surface',
         ':hover': {
           boxShadow: 'lg',

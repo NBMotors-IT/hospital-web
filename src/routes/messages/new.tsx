@@ -13,7 +13,7 @@ function MessageCreatePage() {
     <>
       <Breadcrumb links={linksMap} current='New' />
 
-      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+      <Card>
         <Box>
           <Button component={Link} to={'/messages/'} variant='soft' startDecorator={<Send />}>Send</Button>
         </Box>

@@ -34,7 +34,7 @@ function EmployeeInfoPage() {
     <>
       <Breadcrumb links={linksMap} current={`${employee.name} ${employee.surname}`} />
 
-      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+      <Card>
         <EmployeeInfo employee={employee} />
       </Card>
     </>

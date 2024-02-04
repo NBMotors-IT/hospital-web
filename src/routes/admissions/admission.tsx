@@ -43,13 +43,13 @@ function AdmissionPage() {
         <Grid xs={12} md={10}>
           <Grid container columns={12} spacing={2}> {/* Need to set columns explicitly for some reason */}
             <Grid xs={12} md={6}>
-              <Card variant='plain' sx={{ width: '100%', height: { md: 470 }, boxShadow: 'sm' }}>
+              <Card sx={{ width: '100%', height: { md: 470 } }}>
                 <PatientInfo patient={admission.patient} status={admission.status} />
               </Card>
             </Grid>
 
             <Grid xs={12} md={6}>
-              <Card variant='plain' sx={{ minHeight: { xs: 0, md: 330 }, boxShadow: 'sm' }}>
+              <Card sx={{ minHeight: { xs: 0, md: 330 } }}>
                 <FormControl>
                   <FormLabel>Admitted on</FormLabel>
                   <Input readOnly variant='soft' value={admission.admissionDate.toLocaleString()} />
@@ -79,7 +79,7 @@ function AdmissionPage() {
             <Grid xs={12} md={6}>
               <Grid container columns={12} spacing={2}>
                 <Grid xs={12} md={12}>
-                  <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
+                  <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Previous admissions</Typography>
 
                     <PrevAdmissionsTable />
@@ -87,7 +87,7 @@ function AdmissionPage() {
                 </Grid>
 
                 <Grid xs={12} md={12}>
-                  <Card variant='plain' sx={{ minHeight: { xs: 0, md: 200 }, boxShadow: 'sm' }}>
+                  <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Prescriptions</Typography>
 
                     <PrescriptionsTable />
@@ -97,7 +97,7 @@ function AdmissionPage() {
             </Grid>
 
             <Grid xs={12} md={6}>
-              <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+              <Card>
                 <Typography level='title-md'>Documents</Typography>
 
                 <DocumentsTable />
@@ -108,7 +108,7 @@ function AdmissionPage() {
 
         {/* Sidebar grid */}
         <Grid xs={12} md={2}>
-          <Card variant='plain' sx={{ minHeight: { xs: 0, md: '100%' }, boxShadow: 'sm', justifyContent: 'space-between' }}>
+          <Card sx={{ minHeight: { xs: 0, md: '100%' }, justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a prescription</Button>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>

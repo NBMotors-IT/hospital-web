@@ -23,7 +23,8 @@ function LinkCard({ to, alignItems = 'initial', children }: Props) {
         ':active': {
           backgroundColor: 'primary.plainActiveBg'
         },
-        textDecoration: 'none'
+        textDecoration: 'none',
+        boxShadow: 'none'
       }}
     >
       {children}

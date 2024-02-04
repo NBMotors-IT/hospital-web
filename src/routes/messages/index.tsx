@@ -17,7 +17,7 @@ function MessagesIndexPage() {
       <>
         <Breadcrumb current='Messages' />
 
-        <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+        <Card>
           <Box>
             <Button disabled variant='soft' startDecorator={<Create />}>New message</Button>
           </Box>
@@ -42,7 +42,7 @@ function MessagesIndexPage() {
     <>
       <Breadcrumb current='Messages' />
 
-      <Card variant='plain' sx={{ boxShadow: 'sm' }}>
+      <Card>
         <Box>
           <Button component={Link} to={'/messages/new'} variant='soft' startDecorator={<Create />}>New message</Button>
         </Box>

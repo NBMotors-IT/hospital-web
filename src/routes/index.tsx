@@ -15,7 +15,7 @@ function IndexPage() {
         <DarkModeToggle sx={{ position: 'absolute', top: 12, left: 12 }} />
       </Tooltip>
       
-      <Card variant='plain'
+      <Card
         sx={{
           display: 'flex',
           borderTop: '6px black solid',
@@ -23,8 +23,7 @@ function IndexPage() {
           minWidth: 350,
           p: 3,
           gap: 2,
-          flexDirection: 'column',
-          boxShadow: 'sm'
+          flexDirection: 'column'
         }}
       >
         <Box display='flex' justifyContent='center'>

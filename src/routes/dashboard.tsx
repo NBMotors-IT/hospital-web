@@ -32,14 +32,14 @@ function DashboardPage() {
         </Grid>
 
         <Grid xs={12} md={9}>
-          <Card variant='plain' sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 6, boxShadow: 'sm' }}>
+          <Card sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 6 }}>
             <Typography level='title-md'>Admissions statistics</Typography>
 
             <AdmissionDischargeChart />
           </Card>
         </Grid>
         <Grid xs={12} md={3}>
-          <Card variant='plain' sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 12, boxShadow: 'sm' }}>
+          <Card sx={{ height: { md: 460 }, maxHeight: { xs: 300, md: 460 }, pb: 12 }}>
             <Typography level='title-md'>Bed occupancy</Typography>
 
             <BedOccupancyChart />
@@ -49,7 +49,7 @@ function DashboardPage() {
         </Grid>
 
         {/* <Grid xs={12} md={12}>
-          <Card variant='plain' sx={{ minHeight: 200, boxShadow: 'sm' }}>
+          <Card sx={{ minHeight: 200 }}>
             Some Stuff
           </Card>
         </Grid> */}
