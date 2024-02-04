@@ -16,15 +16,13 @@ function LoggedInLayout() {
           top: 0,
           zIndex: 'popup',
           p: 2,
-          borderBottom: '1px solid',
-          borderColor: 'background.level1',
           boxShadow: 'sm'
         }}
       >
         <IconButton
           onClick={() => toggleSidebar()}
-          variant='outlined'
-          color='neutral'
+          variant='soft'
+          color='primary'
           size='sm'
         >
           <Menu />

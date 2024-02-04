@@ -9,7 +9,7 @@ interface Props {
 
 function LinkCard({ to, alignItems = 'initial', children }: Props) {
   return (
-    <Card variant='soft' component={Link} to={to}
+    <Card variant='soft' color='primary' component={Link} to={to}
       sx={{
         display: 'flex',
         flexDirection: 'row',
@@ -18,10 +18,10 @@ function LinkCard({ to, alignItems = 'initial', children }: Props) {
         p: 1,
         backgroundColor: 'background.surface',
         ':hover': {
-          backgroundColor: 'neutral.plainHoverBg'
+          backgroundColor: 'primary.plainHoverBg'
         },
         ':active': {
-          backgroundColor: 'neutral.plainActiveBg'
+          backgroundColor: 'primary.plainActiveBg'
         },
         textDecoration: 'none'
       }}

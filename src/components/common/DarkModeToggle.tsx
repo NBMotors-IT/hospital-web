@@ -13,8 +13,8 @@ const DarkModeToggle = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   return (
     <IconButton
       size='sm'
-      variant='outlined'
-      color='neutral'
+      variant='soft'
+      color='primary'
       onClick={() => {
         if (mode === 'light') {
           setMode('dark');
