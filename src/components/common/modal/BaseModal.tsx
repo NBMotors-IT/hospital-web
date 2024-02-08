@@ -10,14 +10,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-function TransitionModal({ title, delay = 200, showCloseButton = false, open, handleClose, children }: Props) {
+function BaseModal({ title, delay = 200, showCloseButton = false, open, handleClose, children }: Props) {
   return (
     <Transition in={open} timeout={delay}>
       {(state: string) => (
         <Modal
           keepMounted
           open={!['exited', 'exiting'].includes(state)}
-          onClose={() => handleClose()}
+          onClose={handleClose}
           slotProps={{
             backdrop: {
               sx: {
@@ -37,6 +37,7 @@ function TransitionModal({ title, delay = 200, showCloseButton = false, open, ha
         >
           <ModalDialog variant='plain'
             sx={{
+              gap: 2,
               opacity: 0,
               transition: `opacity ${delay}ms`,
               ...{
@@ -57,4 +58,4 @@ function TransitionModal({ title, delay = 200, showCloseButton = false, open, ha
   );
 }
 
-export default TransitionModal;
+export default BaseModal;
