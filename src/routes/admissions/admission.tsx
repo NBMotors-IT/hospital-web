@@ -1,6 +1,7 @@
 import { Box, Button, Card, Divider, FormControl, FormLabel, Grid, Input, Textarea, Typography } from '@mui/joy';
 import { useParams } from 'react-router-dom';
 
+import { useState } from 'react';
 import DocumentsTable from '../../components/admission/DocumentsTable';
 import PatientInfo from '../../components/admission/PatientInfo';
 import PrescriptionsTable from '../../components/admission/PrescriptionsTable';
@@ -11,6 +12,8 @@ import { useAdmission } from '../../hooks/admission';
 import { AdmissionStatus } from '../../types/admissionStatus';
 import LoadingIndicator from '../../components/common/LoadingIndicator';
 import ErrorDisplay from '../../components/common/ErrorDisplay';
+import ConfirmationModal from '../../components/common/modal/ConfirmationModal';
+import AddDocumentModal from './modals/AddDocumentModal';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -19,6 +22,10 @@ const linksMap = new Map<string, string>([
 function AdmissionPage() {
   const params = useParams();
   const { data, error, isLoading } = useAdmission(params.admissionId as string);
+
+  // Modals states
+  const [dischargeModalOpen, setDischargeModalOpen] = useState(false);
+  const [addDocumentModalOpen, setAddDocumentModalOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -36,6 +43,24 @@ function AdmissionPage() {
 
   return (
     <>
+      {/* Modals */}
+      <ConfirmationModal
+        title='Confirm Patient Discharge'
+        text={`Are you sure you want to discharge patient ${admission.patient.name} ${admission.patient.surname}?`}
+        yesText='Discharge'
+        noText='Cancel'
+        open={dischargeModalOpen}
+        handleClose={() => setDischargeModalOpen(false)}
+        handleYes={() => setDischargeModalOpen(false)} // TODO: Implement discharge, move into DischargeModal component?
+        handleNo={() => setDischargeModalOpen(false)}
+      />
+      <AddDocumentModal
+        open={addDocumentModalOpen}
+        handleClose={() => setAddDocumentModalOpen(false)}
+        handleSubmit={() => setAddDocumentModalOpen(false)}
+      />
+      {/* End of Modals */}
+
       <Breadcrumb links={linksMap} current={`Admission #${params.admissionId}`} />
 
       <Grid container spacing={2}>
@@ -108,16 +133,16 @@ function AdmissionPage() {
 
         {/* Sidebar grid */}
         <Grid xs={12} md={2}>
-          <Card sx={{ minHeight: { xs: 0, md: '100%' }, justifyContent: 'space-between' }}>
+          <Card sx={{ position: 'sticky', top: { xs: 80, xl: 16 }, minHeight: { xs: 0, md: '70vh', xl: '90vh' }, justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a prescription</Button>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>
               <Divider />
-              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Add documents</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setAddDocumentModalOpen(true)}>Add documents</Button>
             </Box>
             <Box display='flex' flexDirection='column' gap={1}>
               <Divider />
-              <Button color='success' disabled={admission.status == AdmissionStatus.Discharged}>Discharge</Button>
+              <Button color='success' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setDischargeModalOpen(true)}>Discharge</Button>
             </Box>
           </Card>
         </Grid>

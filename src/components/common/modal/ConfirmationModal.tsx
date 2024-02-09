@@ -5,8 +5,8 @@ interface Props {
   open: boolean;
   title: string;
   text: string;
-  yesText?: string,
-  noText?: string,
+  yesText?: string;
+  noText?: string;
   handleClose: () => void;
   handleYes: () => void;
   handleNo: () => void;
