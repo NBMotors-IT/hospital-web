@@ -14,6 +14,7 @@ import LoadingIndicator from '../../components/common/LoadingIndicator';
 import ErrorDisplay from '../../components/common/ErrorDisplay';
 import ConfirmationModal from '../../components/common/modal/ConfirmationModal';
 import AddDocumentModal from './modals/AddDocumentModal';
+import WritePrescriptionModal from './modals/WritePrescriptionModal';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -26,6 +27,7 @@ function AdmissionPage() {
   // Modals states
   const [dischargeModalOpen, setDischargeModalOpen] = useState(false);
   const [addDocumentModalOpen, setAddDocumentModalOpen] = useState(false);
+  const [writePrescriptionModalOpen, setWritePrescriptionModalOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -57,6 +59,10 @@ function AdmissionPage() {
       <AddDocumentModal
         open={addDocumentModalOpen}
         handleClose={() => setAddDocumentModalOpen(false)}
+      />
+      <WritePrescriptionModal
+        open={writePrescriptionModalOpen}
+        handleClose={() => setWritePrescriptionModalOpen(false)}
       />
       {/* End of Modals */}
 
@@ -134,7 +140,7 @@ function AdmissionPage() {
         <Grid xs={12} md={2}>
           <Card sx={{ position: 'sticky', top: { xs: 80, xl: 16 }, minHeight: { xs: 0, md: '70vh', xl: '90vh' }, justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
-              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a prescription</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setWritePrescriptionModalOpen(true)}>Write a prescription</Button>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>
               <Divider />
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setAddDocumentModalOpen(true)}>Add documents</Button>
