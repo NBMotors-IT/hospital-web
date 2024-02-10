@@ -67,6 +67,7 @@ function WritePrescriptionModal({ open, handleClose }: Props) {
             <Option value='vilazodone'>Vilazodone</Option>
             <Option value='vortioxetine'>Vortioxetine</Option>
             <Option value='ziprasidone'>Ziprasidone</Option>
+            {/* No, you don't understand, we MUST have a hard-coded list of 54 psychiatric drugs */}
           </Select>
         </FormControl>
 

@@ -15,6 +15,7 @@ import ErrorDisplay from '../../components/common/ErrorDisplay';
 import ConfirmationModal from '../../components/common/modal/ConfirmationModal';
 import AddDocumentModal from './modals/AddDocumentModal';
 import WritePrescriptionModal from './modals/WritePrescriptionModal';
+import WriteReferralModal from './modals/WriteReferralModal';
 
 const linksMap = new Map<string, string>([
   ['/admissions', 'Admissions']
@@ -25,9 +26,10 @@ function AdmissionPage() {
   const { data, error, isLoading } = useAdmission(params.admissionId as string);
 
   // Modals states
-  const [dischargeModalOpen, setDischargeModalOpen] = useState(false);
-  const [addDocumentModalOpen, setAddDocumentModalOpen] = useState(false);
   const [writePrescriptionModalOpen, setWritePrescriptionModalOpen] = useState(false);
+  const [writeReferralModalOpen, setWriteReferralModalOpen] = useState(false);
+  const [addDocumentModalOpen, setAddDocumentModalOpen] = useState(false);
+  const [dischargeModalOpen, setDischargeModalOpen] = useState(false);
 
   if (isLoading) {
     return (
@@ -46,6 +48,18 @@ function AdmissionPage() {
   return (
     <>
       {/* Modals */}
+      <WritePrescriptionModal
+        open={writePrescriptionModalOpen}
+        handleClose={() => setWritePrescriptionModalOpen(false)}
+      />
+      <WriteReferralModal
+        open={writeReferralModalOpen}
+        handleClose={() => setWriteReferralModalOpen(false)}
+      />
+      <AddDocumentModal
+        open={addDocumentModalOpen}
+        handleClose={() => setAddDocumentModalOpen(false)}
+      />
       <ConfirmationModal
         title='Confirm Patient Discharge'
         text={`Are you sure you want to discharge patient ${admission.patient.name} ${admission.patient.surname}?`}
@@ -55,14 +69,6 @@ function AdmissionPage() {
         handleClose={() => setDischargeModalOpen(false)}
         handleYes={() => setDischargeModalOpen(false)} // TODO: Implement discharge, move into DischargeModal component?
         handleNo={() => setDischargeModalOpen(false)}
-      />
-      <AddDocumentModal
-        open={addDocumentModalOpen}
-        handleClose={() => setAddDocumentModalOpen(false)}
-      />
-      <WritePrescriptionModal
-        open={writePrescriptionModalOpen}
-        handleClose={() => setWritePrescriptionModalOpen(false)}
       />
       {/* End of Modals */}
 
@@ -141,7 +147,7 @@ function AdmissionPage() {
           <Card sx={{ position: 'sticky', top: { xs: 80, xl: 16 }, minHeight: { xs: 0, md: '70vh', xl: '90vh' }, justifyContent: 'space-between' }}>
             <Box display='flex' flexDirection='column' gap={1}>
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setWritePrescriptionModalOpen(true)}>Write a prescription</Button>
-              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged}>Write a referral</Button>
+              <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setWriteReferralModalOpen(true)}>Write a referral</Button>
               <Divider />
               <Button variant='soft' disabled={admission.status == AdmissionStatus.Discharged} onClick={() => setAddDocumentModalOpen(true)}>Add documents</Button>
             </Box>
