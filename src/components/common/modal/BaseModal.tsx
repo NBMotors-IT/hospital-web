@@ -37,6 +37,7 @@ function BaseModal({ title, delay = 200, showCloseButton = false, open, handleCl
         >
           <ModalDialog variant='plain'
             sx={{
+              minWidth: '400px',
               gap: 2,
               opacity: 0,
               transition: `opacity ${delay}ms`,

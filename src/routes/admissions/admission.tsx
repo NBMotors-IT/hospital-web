@@ -57,7 +57,6 @@ function AdmissionPage() {
       <AddDocumentModal
         open={addDocumentModalOpen}
         handleClose={() => setAddDocumentModalOpen(false)}
-        handleSubmit={() => setAddDocumentModalOpen(false)}
       />
       {/* End of Modals */}
 
