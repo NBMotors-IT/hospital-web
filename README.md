@@ -1,6 +1,6 @@
 # Running
 ```
 cp .env.example .env
-npm install
+npm ci
 npm run dev
 ```

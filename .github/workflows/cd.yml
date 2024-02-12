@@ -27,7 +27,7 @@ jobs:
         script: |
           cd ~/git/hospital-web
           git pull
-          npm i
+          npm ci
           npx tsc
           npx vite build --base=/hospital/
           sudo cp -rf dist/. ~/docker/nginx/www/public/hospital/.
