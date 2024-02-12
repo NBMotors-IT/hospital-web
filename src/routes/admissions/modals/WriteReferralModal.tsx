@@ -8,7 +8,7 @@ interface Props {
 
 function WriteReferralModal({ open, handleClose }: Props) {
   return (
-    <BaseModal title='Write a referral' open={open} handleClose={handleClose} showCloseButton>
+    <BaseModal title='Write a Referral' open={open} handleClose={handleClose} showCloseButton>
       <Box display='flex' flexDirection='column' gap={2}>
         <FormControl>
           <FormLabel>Referral type</FormLabel>

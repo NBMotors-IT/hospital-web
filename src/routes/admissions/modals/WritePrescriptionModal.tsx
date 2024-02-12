@@ -8,7 +8,7 @@ interface Props {
 
 function WritePrescriptionModal({ open, handleClose }: Props) {
   return (
-    <BaseModal title='Write a prescription' open={open} handleClose={handleClose} showCloseButton>
+    <BaseModal title='Write a Prescription' open={open} handleClose={handleClose} showCloseButton>
       <Box display='flex' flexDirection='column' gap={2}>
         <FormControl>
           <FormLabel>Drug</FormLabel>

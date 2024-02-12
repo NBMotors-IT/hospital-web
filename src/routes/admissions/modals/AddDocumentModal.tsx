@@ -20,7 +20,7 @@ function AddDocumentModal({ open, handleClose }: Props) {
   };
 
   return (
-    <BaseModal title='Add documents' open={open} handleClose={handleClose} showCloseButton>
+    <BaseModal title='Add Documents' open={open} handleClose={handleClose} showCloseButton>
       <Box display='flex' flexDirection='column' gap={2}>
         Select one or more files to upload
         <input type='file' accept='image/*,.pdf' multiple disabled={uploading} />
