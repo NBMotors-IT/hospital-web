@@ -42,6 +42,7 @@
     "eslint-plugin-sonarjs": "^0.23.0",
     "eslint-plugin-unicorn": "^49.0.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-pwa": "^0.18.1"
   }
 }
