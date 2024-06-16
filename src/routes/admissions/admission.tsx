@@ -118,7 +118,7 @@ function AdmissionPage() {
                   <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Previous admissions</Typography>
 
-                    <PrevAdmissionsTable />
+                    <PrevAdmissionsTable currentAdmission={admission} />
                   </Card>
                 </Grid>
 

@@ -1,21 +1,31 @@
 import { Box, Button, Table } from '@mui/joy';
+import { Link } from 'react-router-dom';
+import { Admission } from '../../types/admission';
+import { useAdmissionsForPatient } from '../../hooks/admission';
+import LoadingIndicator from '../common/LoadingIndicator';
+import ErrorDisplay from '../common/ErrorDisplay';
 
-interface Admission {
-  id: string,
-  date: Date,
-  doctor: string
+interface Props {
+  currentAdmission: Admission
 }
 
-const doctor = 'John Smith';
-const previousAdmissions: Admission[] = [
-  { id: '6457', date: new Date('2023-02-12T12:00'), doctor: doctor },
-  { id: '3256', date: new Date('2023-01-01T12:00'), doctor: doctor },
-  { id: '1111', date: new Date('2022-12-31T12:00'), doctor: doctor },
-  { id: '0101', date: new Date('2021-04-11T12:00'), doctor: doctor },
-  { id: '0000', date: new Date('2020-09-22T12:00'), doctor: doctor }
-];
+function PrevAdmissionsTable({ currentAdmission }: Props) {
+  const { data, error, isLoading } = useAdmissionsForPatient(currentAdmission.patient.id);
 
-function PrevAdmissionsTable() {
+  if (isLoading) {
+    return (
+      <LoadingIndicator />
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorDisplay message='Could not load previous admissions' />
+    );
+  }
+
+  const admissions = (data as Admission[]).filter((a) => a.id !== currentAdmission.id);
+
   return (
     <>
       <Box overflow='auto' height='180px'>
@@ -29,12 +39,12 @@ function PrevAdmissionsTable() {
             </tr>
           </thead>
           <tbody>
-            {previousAdmissions.map((admission) => (
+            {admissions.sort((a, b) => new Date(b.admissionDate!).getTime() - new Date(a.admissionDate!).getTime()).map((admission) => (
               <tr key={admission.id}>
                 <td>{admission.id}</td>
-                <td>{admission.date.toLocaleDateString()}</td>
-                <td>{admission.doctor}</td>
-                <td><Button variant='plain'>View</Button></td>
+                <td>{new Date(admission.admissionDate).toLocaleDateString()}</td>
+                <td>{admission.employee.name} {admission.employee.surname}</td>
+                <td><Button component={Link} to={`/admissions/${admission.id}`} variant='plain'>View</Button></td>
               </tr>
             ))}
           </tbody>
