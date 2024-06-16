@@ -1,6 +1,6 @@
 import { Admission } from './admission';
 
-export const DEPARMENTS = [
+export const DEPARTMENTS = [
   'Cardiology', 'Orthopedics', 'Neurology', 'Pediatrics', 'Oncology', 'Dermatology', 'Emergency Medicine', 'Gynecology', 'ENT', 'Urology'
 ];
 
