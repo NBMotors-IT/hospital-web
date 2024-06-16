@@ -10,7 +10,7 @@ export interface Patient {
   sex: Sex,
   dateOfBirth?: Date,
   address?: string,
-  postCode?: string,
+  postcode?: string,
   pesel?: string,
   bloodType?: BloodType,
   weight?: number,

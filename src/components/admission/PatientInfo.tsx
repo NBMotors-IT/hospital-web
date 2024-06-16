@@ -38,7 +38,7 @@ function PatientInfo({ patient, status }: Props) {
 
         <FormControl>
           <FormLabel>Address</FormLabel>
-          <Input readOnly variant='soft' value={`${patient.address} ${patient.postCode}`} />
+          <Input readOnly variant='soft' value={`${patient.address} ${patient.postcode}`} />
         </FormControl>
 
         <FormControl>
