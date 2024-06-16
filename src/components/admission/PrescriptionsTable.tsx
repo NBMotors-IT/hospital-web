@@ -53,7 +53,10 @@ function PrescriptionsTable({ patient }: Props) {
             </tr>
           </thead>
           <tbody>
-            {prescriptions.filter((element) => filterFn(element)).map((prescription) => (
+            {prescriptions
+              .filter((element) => filterFn(element))
+              .sort((a, b) => new Date(b.prescriptionStartDate!).getTime() - new Date(a.prescriptionStartDate!).getTime())
+              .map((prescription) => (
               <tr key={prescription.id}>
                 <td>{prescription.id}</td>
                 <td>{new Date(prescription.prescriptionStartDate).toLocaleDateString()}</td>
