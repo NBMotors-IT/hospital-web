@@ -55,7 +55,7 @@ function EmployeeInfo({ employee }: Props) {
 
         <FormControl>
           <FormLabel>Birthday</FormLabel>
-          <Input readOnly variant='soft' value={employee.dateOfBirth?.toLocaleDateString()} />
+          <Input readOnly variant='soft' value={new Date(employee.dateOfBirth!).toLocaleDateString()} />
         </FormControl>
       </PersonInfo.Info>
     </PersonInfo>

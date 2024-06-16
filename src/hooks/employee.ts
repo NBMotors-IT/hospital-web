@@ -1,5 +1,6 @@
 import { Employee } from '../types/employee';
 import { useFakeFetch } from './fakeFetcher';
+import useFetch from './useFetch';
 
 const employees: Employee[] = [
   { id: '0', name: 'Doctor', surname: 'McDoctorface', office: 'A123', specialisation: 'Surgeon', role: 'Medical Director', department: 'Surgery', dateOfBirth: new Date('1990-05-15'), pwzNumber: '1234567A', phoneNumber: '123 456 789', email: 'doctor.mcdoctorface@example.com', address: '123 Main Street', postcode: 'AB123CD' },
@@ -12,15 +13,13 @@ const employees: Employee[] = [
 ];
 
 export function useEmployee(id: string) {
-  // TODO: Fetching from backend
-  const { data, error, isLoading } = useFakeFetch<Employee>(employees.find(e => e.id == id));
+  const { data, error, isLoading } = useFetch<Employee>(`/employees/${id}`);
 
   return { data, error, isLoading };
 }
 
 export function useEmployees() {
-  // TODO: Fetching from backend
-  const { data, error, isLoading } = useFakeFetch<Employee[]>(employees);
+  const { data, error, isLoading } = useFetch<Employee[]>('/employees');
 
   return { data, error, isLoading };
 }
