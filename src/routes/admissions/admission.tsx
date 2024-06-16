@@ -126,7 +126,7 @@ function AdmissionPage() {
                   <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Prescriptions</Typography>
 
-                    <PrescriptionsTable />
+                    <PrescriptionsTable patient={admission.patient} />
                   </Card>
                 </Grid>
               </Grid>
