@@ -18,7 +18,6 @@ function EmployeeInfo({ employee }: Props) {
       <PersonInfo.Chips>
         <Chip variant='soft' startDecorator={<SensorDoor />}>{employee.office}</Chip>
         <Box display='flex' gap={1}>
-          <Chip variant='soft'>{employee.role}</Chip>
           <Chip variant='soft'>{employee.specialisation}</Chip>
         </Box>
       </PersonInfo.Chips>

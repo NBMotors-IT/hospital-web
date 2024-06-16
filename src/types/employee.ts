@@ -1,12 +1,15 @@
 import { Admission } from './admission';
 
+export const DEPARMENTS = [
+  'Cardiology', 'Orthopedics', 'Neurology', 'Pediatrics', 'Oncology', 'Dermatology', 'Emergency Medicine', 'Gynecology', 'ENT', 'Urology'
+];
+
 export interface Employee {
   id: string,
   name: string,
   surname: string,
   office: string,
   specialisation: string,
-  role: string,
   department: string,
   dateOfBirth?: Date,
   pwzNumber?: string,
