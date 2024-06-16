@@ -11,7 +11,7 @@ export interface Patient {
   dateOfBirth?: Date,
   address?: string,
   postCode?: string,
-  PESEL?: string,
+  pesel?: string,
   bloodType?: BloodType,
   weight?: number,
   height?: number,

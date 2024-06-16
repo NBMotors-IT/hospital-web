@@ -43,12 +43,12 @@ function PatientInfo({ patient, status }: Props) {
 
         <FormControl>
           <FormLabel>PESEL</FormLabel>
-          <Input readOnly variant='soft' value={patient.PESEL} />
+          <Input readOnly variant='soft' value={patient.pesel} />
         </FormControl>
 
         <FormControl>
           <FormLabel>Date Of Birth</FormLabel>
-          <Input readOnly variant='soft' value={patient.dateOfBirth?.toLocaleDateString()} />
+          <Input readOnly variant='soft' value={new Date(patient.dateOfBirth!).toLocaleDateString()} />
         </FormControl>
 
         <FormControl>
