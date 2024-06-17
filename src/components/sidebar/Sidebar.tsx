@@ -35,7 +35,7 @@ function Sidebar() {
       <Sheet
         sx={{
           backgroundColor: 'unset',
-          height: '100vh',
+          height: '100%',
           p: {
             xs: 0,
             xl: 2
@@ -57,14 +57,20 @@ function Sidebar() {
               xl: 'none'
             },
             transition: 'transform 0.2s, width 0.2s',
-            top: 0,
+            top: {
+              xs: 0,
+              xl: 16
+            },
             zIndex: 'modal',
             display: 'flex',
             flexDirection: 'column',
             gap: 2,
             p: 2,
             width: '300px',
-            height: '100%',
+            height: {
+              xs: '100vh',
+              xl: 'calc(100vh - 32px)'
+            },
             overflow: 'auto'
           }}
         >
