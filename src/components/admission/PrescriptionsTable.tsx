@@ -34,7 +34,7 @@ function PrescriptionsTable({ patient }: Props) {
 
     return (new Date(p.prescriptionStartDate).toLocaleDateString().includes(filter)
       || new Date(p.prescriptionEndDate).toLocaleDateString().includes(filter)
-      || p.id.includes(filter)
+      || p.id.toString().includes(filter)
       || p.medicineName.toLowerCase().includes(filter.toLowerCase()));
   };
 
