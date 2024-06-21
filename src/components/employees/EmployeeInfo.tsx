@@ -18,7 +18,6 @@ function EmployeeInfo({ employee }: Props) {
       <PersonInfo.Chips>
         <Chip variant='soft' startDecorator={<SensorDoor />}>{employee.office}</Chip>
         <Box display='flex' gap={1}>
-          <Chip variant='soft'>{employee.role}</Chip>
           <Chip variant='soft'>{employee.specialisation}</Chip>
         </Box>
       </PersonInfo.Chips>
@@ -56,7 +55,7 @@ function EmployeeInfo({ employee }: Props) {
 
         <FormControl>
           <FormLabel>Birthday</FormLabel>
-          <Input readOnly variant='soft' value={employee.dateOfBirth?.toLocaleDateString()} />
+          <Input readOnly variant='soft' value={new Date(employee.dateOfBirth!).toLocaleDateString()} />
         </FormControl>
       </PersonInfo.Info>
     </PersonInfo>

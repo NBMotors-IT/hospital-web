@@ -1,34 +1,41 @@
 import { Search } from '@mui/icons-material';
 import { Box, Button, Input, Table } from '@mui/joy';
 import { useState } from 'react';
+import { usePrescriptionsForPatient } from '../../hooks/prescription';
+import { Patient } from '../../types/patient';
+import LoadingIndicator from '../common/LoadingIndicator';
+import ErrorDisplay from '../common/ErrorDisplay';
+import { Prescription } from '../../types/prescription';
 
-interface Prescription {
-  id: string,
-  date: Date,
-  medicine: string
+interface Props {
+  patient: Patient
 }
 
-const previousPrescriptions: Prescription[] = [
-  { id: 'xddd', date: new Date('2023-02-12T12:00'), medicine: 'Xanax' },
-  { id: 'xdde', date: new Date('2023-01-01T12:00'), medicine: 'Lorazepam' },
-  { id: 'xdee', date: new Date('2022-12-31T12:00'), medicine: 'Concerta' },
-  { id: 'xdxd', date: new Date('2021-04-11T12:00'), medicine: 'Citalopram' },
-  { id: 'xdxx', date: new Date('2020-09-22T12:00'), medicine: 'Zoloft' },
-  { id: 'xddx', date: new Date('2020-09-22T11:00'), medicine: 'Celexa' },
-  { id: 'xxxd', date: new Date('2020-09-22T10:00'), medicine: 'Prozac' },
-  { id: 'dddx', date: new Date('2020-09-22T09:00'), medicine: 'Wellbutrin' }
-];
-
-function PrescriptionsTable() {
+function PrescriptionsTable({ patient }: Props) {
+  const { data, error, isLoading } = usePrescriptionsForPatient(patient.id);
   const [filter, setFilter] = useState('');
 
+  if (isLoading) {
+    return (
+      <LoadingIndicator />
+    );
+  }
+
+  if (error) {
+    return (
+      <ErrorDisplay message='Could not load prescriptions' />
+    );
+  }
+
+  const prescriptions = data as Prescription[];
+
   const filterFn = (p: Prescription) => {
-    // TODO: Rewrite when/if we change date type?
     if (filter.length === 0) return true;
 
-    return (p.date.toLocaleDateString().includes(filter)
-      || p.id.includes(filter)
-      || p.medicine.toLowerCase().includes(filter.toLowerCase()));
+    return (new Date(p.prescriptionStartDate).toLocaleDateString().includes(filter)
+      || new Date(p.prescriptionEndDate).toLocaleDateString().includes(filter)
+      || p.id.toString().includes(filter)
+      || p.medicineName.toLowerCase().includes(filter.toLowerCase()));
   };
 
   return (
@@ -46,11 +53,14 @@ function PrescriptionsTable() {
             </tr>
           </thead>
           <tbody>
-            {previousPrescriptions.filter((element) => filterFn(element)).map((prescription) => (
+            {prescriptions
+              .filter((element) => filterFn(element))
+              .sort((a, b) => new Date(b.prescriptionStartDate!).getTime() - new Date(a.prescriptionStartDate!).getTime())
+              .map((prescription) => (
               <tr key={prescription.id}>
                 <td>{prescription.id}</td>
-                <td>{prescription.date.toLocaleDateString()}</td>
-                <td>{prescription.medicine}</td>
+                <td>{new Date(prescription.prescriptionStartDate).toLocaleDateString()}</td>
+                <td>{prescription.medicineName}</td>
                 <td><Button variant='plain'>View</Button></td>
               </tr>
             ))}

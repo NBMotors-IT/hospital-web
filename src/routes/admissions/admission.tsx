@@ -88,12 +88,12 @@ function AdmissionPage() {
               <Card sx={{ minHeight: { xs: 0, md: 330 } }}>
                 <FormControl>
                   <FormLabel>Admitted on</FormLabel>
-                  <Input readOnly variant='soft' value={admission.admissionDate.toLocaleString()} />
+                  <Input readOnly variant='soft' value={new Date(admission.admissionDate!).toLocaleString()} />
                 </FormControl>
 
                 <FormControl>
                   <FormLabel>Discharged on</FormLabel>
-                  <Input readOnly variant='soft' value={admission.dischargeDate ? admission.dischargeDate.toLocaleString() : 'N/A'} />
+                  <Input readOnly variant='soft' value={admission.dischargeDate ? new Date(admission.dischargeDate!).toLocaleString() : 'N/A'} />
                 </FormControl>
 
                 <FormControl>
@@ -118,7 +118,7 @@ function AdmissionPage() {
                   <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Previous admissions</Typography>
 
-                    <PrevAdmissionsTable />
+                    <PrevAdmissionsTable currentAdmission={admission} />
                   </Card>
                 </Grid>
 
@@ -126,7 +126,7 @@ function AdmissionPage() {
                   <Card sx={{ minHeight: { xs: 0, md: 200 } }}>
                     <Typography level='title-md'>Prescriptions</Typography>
 
-                    <PrescriptionsTable />
+                    <PrescriptionsTable patient={admission.patient} />
                   </Card>
                 </Grid>
               </Grid>

@@ -38,7 +38,7 @@ function AdmissionsIndexPage() {
 
       <Card>
         <Box display='flex' flexDirection='column' gap={1}>
-          {admissions.map((admission) => (
+          {admissions.sort((a, b) => new Date(b.admissionDate!).getTime() - new Date(a.admissionDate!).getTime()).map((admission) => (
             <AdmissionPreview key={admission.id} admission={admission} />
           ))}
         </Box>

@@ -14,7 +14,7 @@ function EmployeePreview({ employee }: Props) {
         <Avatar sx={{ width: 64, height: 64 }} />
         <Box display='flex' flexDirection='column' gap={0.3}>
           <Typography fontWeight='600'>{employee.name} {employee.surname}</Typography>
-          <Typography level='body-sm'>{employee.role} - {employee.specialisation}</Typography>
+          <Typography level='body-sm'>{employee.specialisation}</Typography>
         </Box>
       </Box>
 

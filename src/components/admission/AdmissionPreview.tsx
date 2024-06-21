@@ -22,7 +22,7 @@ function AdmissionPreview({ admission }: Props) {
       </Box>
 
       <Box position='absolute' right={12} top={12}>
-        <Typography level='body-sm'>{shortTimeFormat(admission.admissionDate)}</Typography>
+        <Typography level='body-sm'>{shortTimeFormat(new Date(admission.admissionDate!))}</Typography>
       </Box>
     </LinkCard>
   );
